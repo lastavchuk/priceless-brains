@@ -1,2 +1,3 @@
 import 'modern-normalize';
-import '../js/list-category'
+import '../js/list-category';
+import '../js/modal';

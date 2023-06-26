@@ -2,12 +2,12 @@ const organization = [
     {
         title: 'Save the Children',
         url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-        img: '../images/js-project-png/STC_x1.png',
+        img: './images/js-project-png/STC_x1.png',
     },
     {
         title: 'Project HOPE',
         url: 'https://www.projecthope.org/country/ukraine/',
-        img: '../images/js-project-png/project-hope_x1.png',
+        img: './images/js-project-png/project-hope_x1.png',
     },
     {
         title: 'UNITED24',
@@ -54,21 +54,39 @@ const elements = {
 
 let amount = 4;
 
-btnMore.addEventListener('click', handlerClickMore);
-btnPrev.addEventListener('click', handlerClickPrev);
+// btnMore.addEventListener('click', handlerClickMore);
+// btnPrev.addEventListener('click', handlerClickPrev);
 
-function createSupportList(organization) {
-    return organization
-        .map(({ title, url, img }) => {
-            `<li class="support-item">
+function createSupportList(arr) {
+    console.log(arr);
+    return arr
+        .map(({ title, url, img }, idx) => {
+            return `<li class="support-item">
             <a href="${url}" target="_blank" rel="noopener noreferrer nofollow">
-                <img src="${img}" alt="${title}" />
+                ${(idx + 1)
+                    .toString()
+                    .padStart('2', 0)}<img src="${img}" alt="${title}" />
             </a>
         </li>`;
         })
         .join('');
 }
-supportList.insertAdjacentHTML('beforeend', createSupportList(organization));
+
+// function createSupportList(arr) {
+//     let markup = '';
+//     for (let i = 1; i <= 9; i += 1) {
+//         markup += `<li class="support-item"> ${i}
+//             <a href="${organization.url}" target="_blank" rel="noopener noreferrer nofollow">
+//                 <img src="${organization.img}" alt="${organization.title}" />
+//             </a>
+//         </li>`;
+//     }
+// }
+
+elements.supportList.insertAdjacentHTML(
+    'beforeend',
+    createSupportList(organization)
+);
 
 // function handlerClickMore() {
 //     if (amount < supportList.length {

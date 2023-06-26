@@ -1,67 +1,85 @@
-<div class="modal">
-    <button type="button" class="modal-close" data-modal-close>
-        <svg class="modal-close-svg" width="24px" height="24px">
-            <use href="#"></use>
-        </svg>
-    </button>
-    <div class="thumb">
-        <img
-            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659825850i/61771675.jpg"
-            alt="Cover"
-        />
-        <h3>HELLO BEAUTIFUL</h3>
-        <h4>Ann Napolitano</h4>
-    </div>
-    <p class="descr">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis,
-        suscipit hic illo praesentium expedita ipsa, autem sapiente quis,
-        repellat perferendis similique facere cum ipsum cumque aliquam nemo.
-        Accusantium, inventore animi?
-    </p>
-    <ul>
-        <li>
-            <a
-                aria-label="amazon"
-                class="modal-link"
-                href="https://www.amazon.com"
-                rel="noopener noreferrer"
-                target="_blank"
-            >
-                <svg class="modal-svg">
+<div class="backdrop modal-is-hidden" data-modal>
+    <div class="modal">
+        <button type="button" class="modal-close" data-modal-close>
+            <svg class="modal-close-svg" width="24px" height="24px">
+                <use href="./images/symbol-defs.svg#icon-close"></use>
+            </svg>
+        </button>
+        <div class="modal-book">
+            <div class="thumb">
+                <img
+                    class="book-img"
+                    src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659825850i/61771675.jpg"
+                    alt="Cover"
+                />
+            </div>
+            <div class="modal-book-info">
+                <h3 class="name">HELLO BEAUTIFUL</h3>
+                <h4 class="author">Ann Napolitano</h4>
+                <p class="descr">
+                    In a homage to Louisa May Alcott's "Little Women," a young
+                    man's dark past resurfaces as he gets to the know the family
+                    of his college sweetheart.
+                </p>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <a
+                            aria-label="amazon"
+                            class="modal-link"
+                            href="https://www.amazon.com"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            <img
+                                src="./images/js-project-png/amazon_x1.png"
+                                alt="amazon"
+                            />
+                            <!-- <svg class="modal-svg">
                     <use href="#">amazon</use>
-                </svg>
-            </a>
-        </li>
-        <li>
-            <a
-                aria-label="e-books"
-                class="modal-link"
-                href=""
-                rel="noopener noreferrer"
-                target="_blank"
-            >
-                <svg class="modal-svg">
+                </svg> -->
+                        </a>
+                    </li>
+                    <li class="modal-item">
+                        <a
+                            aria-label="e-books"
+                            class="modal-link"
+                            href=""
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            <img
+                                src="./images/js-project-png/ibooks_x1.png"
+                                alt=""
+                            />
+                            <!-- <svg class="modal-svg">
                     <use href="#">e-books</use>
-                </svg>
-            </a>
-        </li>
-        <li>
-            <a
-                aria-label="book shop"
-                class="modal-link"
-                href=""
-                rel="noopener noreferrer"
-                target="_blank"
-            >
-                <svg class="modal-svg">
+                </svg> -->
+                        </a>
+                    </li>
+                    <li class="modal-item">
+                        <a
+                            aria-label="book shop"
+                            class="modal-link"
+                            href=""
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            <img
+                                src="./images/js-project-png/book-shop_x1.png"
+                                alt=""
+                            />
+                            <!-- <svg class="modal-svg">
                     <use href="#">book shop</use>
-                </svg>
-            </a>
-        </li>
-    </ul>
-    <button type="button" class="modal-btn">add to shopping list</button>
-    <p>
-        Congratulations! You have added the book to the shopping list. To
-        delete, press the button "Remove from the shopping list".
-    </p>
+                </svg> -->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <button type="button" class="modal-btn">add to shopping list</button>
+        <p class="congratulations">
+            Congratulations! You have added the book to the shopping list. To
+            delete, press the button "Remove from the shopping list".
+        </p>
+    </div>
 </div>

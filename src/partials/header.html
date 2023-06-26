@@ -1,22 +1,37 @@
-<header class="header">
-    <div class="container container-header">
-      <a href="./index.html" class="header-logo">
-        <svg class="header-logo__icon">
-            <use></use>>
-         </svg>>
-        </a>
-        <nav class="nav">
-            <ul class="nav__list">
-                <li class="nav__item">
-                    <a href="./index.html" class="nav__link" data-section="home">Home</a>
-                </li>
-                <li class="nav__item">
-                    <a href="./index.html" class="nav__link">Shopping List</a>
-                    <svg class="header-item__icon">
-                        <use></use>>
-                     </svg>>
-                </li>
+      <header class="header">
+        <div class="container container-header">
+          <a class="logo-link" href="./index.html">
+            <svg class="logo-icon">
+                <use href="./images/symbol-defs.svg#icon-logo"></use>
+            </svg></a>
+          <nav class="navigation-main">
+            <ul class="navigation-list">
+              <li class="navigation-item">
+                <a class="navigation-link" href="/src/index.html">HOME</a>
+              </li>
+              <li class="navigation-item">
+                <a class="navigation-link" href="/src/shopping-list.html">SHOPPING LIST
+                  <svg class="logo-shop">
+                    <use href="./images/sprite.svg#icon-shop"></use>
+                  </svg>
+                </a>
+              </li>
             </ul>
-        </nav>
-    </div>
-</header>
+          </nav>
+      <!-- Buttons -->
+      <div class="container-button">
+        <label class="switch">
+          <input id="theme-switch" type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+        <button class="button-burger js-open-menu">
+          <svg class="svg" width="28" height="28">
+            <use href=""></use>
+          </svg>
+        </button>
+        <button class="button-burger-close js-close-menu is-hidden">
+          <svg class="svg" width="28" height="28">
+            <use href=""></use>
+          </svg>
+        </button>
+        

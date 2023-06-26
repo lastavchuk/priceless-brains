@@ -1,0 +1,30 @@
+.container-header {
+    background-color: $bg-color;
+    color: $primary-color;
+    outline: 1.5px solid $primary-color;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.logo-link {
+    display: flex;
+    gap: 8px;
+    margin-right: 40px;
+  }
+
+  // Desktop
+@media screen and (min-width: 1440px) {
+    .logo-link {
+      margin-right: 76px;
+    }
+
+    .navigation-list {
+        gap: 24px;
+      }
+}

@@ -1,5 +1,36 @@
-$primary-color: #ffffff;
+// light
+$bg-color: #F6F6F6;
+$primary-color: #111111;
+$logo-text: #000000;
+$header-bg-color: #ffffff;
+$sidebar-activ-text: #4F2EE8;
 
+$other-text-color: #111111;
+// $sidebar-text:#111111;
+// $head-text-color: #111111;
+// $btn-text-see-more: #111111;
+
+
+// dark
+.dark-theme{
+    $bg-color: #202024;
+    $primary-color: #000000;
+    $logo-text: #F3F3F3;
+    $header-bg-color: #111111;
+    $sidebar-activ-text: #EAC645;
+
+    $other-text-color: #ffffff;
+    // $sidebar-text: #ffffff;
+    // $head-text-color: #ffffff;
+    // $btn-text-see-more: #ffffff;
+}
+
+//=== однаковий для обох тем ===
+$second-color: #B4AFAF;
+$blue-color: #4F2EE8; // в заголовку span
+$yellow-color: #EAC645; // навігація активна сторінка, стрілки
+// $white-color: #ffffff;
+// $black-color: #000000;
 
 // body{
 //     background-color: $primary-color;

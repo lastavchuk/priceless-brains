@@ -1,4 +1,5 @@
 .container-header {
+<<<<<<< Updated upstream
     background-color: $bg-color;
     color: $primary-color;
     outline: 1.5px solid $primary-color;
@@ -28,3 +29,15 @@
         gap: 24px;
       }
 }
+=======
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    height: 72px;
+
+    color: var($primary-color);
+    outline: 1.5px solid var($primary-color);
+    border-radius: 0px 0px 8px 8px;
+  }
+>>>>>>> Stashed changes

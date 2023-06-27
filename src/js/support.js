@@ -2,12 +2,12 @@ const organization = [
     {
         title: 'Save the Children',
         url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-        img: '../images/js-project-png/STC_x1.png',
+        img: './images/js-project-png/STC_x1.png',
     },
     {
         title: 'Project HOPE',
         url: 'https://www.projecthope.org/country/ukraine/',
-        img: '../images/js-project-png/project-hope_x1.png',
+        img: './images/js-project-png/project-hope_x1.png',
     },
     {
         title: 'UNITED24',

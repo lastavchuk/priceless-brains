@@ -12,7 +12,6 @@ fetch(urlCategory)
 
 
 const categoryList = document.querySelector('.category-list');
-const categoriesContainer = document.querySelector('.categories');
 const categoryName = document.querySelector('.category-name');
 const bookList = document.querySelector('.book-list');
 const itemCat=document.querySelector('.item')
@@ -26,7 +25,9 @@ function fetchCategory(query) {
 }
 
 function renderCategoryBooks(books) {
-  if (categoryName.textContent === 'allBooks') {
+  const isAllBooks = categoryName.textContent === 'allBooks';
+
+  if (isAllBooks) {
     const markup = `
       <h1 class="title-book">
         Best Sellers <span class="title-book-span">Books</span>
@@ -86,17 +87,17 @@ function renderCategoryBooks(books) {
 
 function onCategoryClick(e) {
   const category = e.target.dataset.name;
+
   if (!category) return;
 
   if (category === 'allBooks') {
     bookList.innerHTML = '';
-    categoryName.textContent = category;
-  } else {
-    getCategoryBooks(category);
-    categoryName.textContent = category;
+    categoryName.textContent = '';
+    return;
   }
+  getCategoryBooks(category);
+  categoryName.textContent = category;
 }
-
 
 function getCategoryBooks(category) {
   fetchCategory(category).then(res => {
@@ -147,7 +148,7 @@ function createGalleryItem(data) {
     )
     .join('');
 console.log(markup);
-  categoriesContainer.innerHTML = markup;
+  bookList.innerHTML = markup;
 }
 
 async function createMarkup() {

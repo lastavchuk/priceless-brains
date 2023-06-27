@@ -24,22 +24,22 @@
     background-color: $bg-color;
 }
 
-.blocks{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+// .blocks{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
 
 @media screen and (min-width: $tablet) {
     .category {
         max-width: 337px;
         height: 472px;
     }
-    .blocks{
-        flex-direction: row;
-        gap:32px;
-        justify-content: center;
-    }
+    // .blocks{
+    //     flex-direction: row;
+    //     gap:32px;
+    //     justify-content: center;
+    // }
 }
 
 @media screen and (min-width: $desktop) {
@@ -47,6 +47,7 @@
         max-width: 356px;
         height: 472px;
     }
+
 }
 
 .category .item {

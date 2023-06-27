@@ -1,112 +1,68 @@
-<header class="header">
-    <div class="container container-header">
-      <a class="logo-link" href="./index.html">
-        <svg class="logo-icon">
-            <use href="./images/symbol-defs.svg#icon-logo/"></use>
+<div class="header">
+    <a class="logo" href="./index.html" aria-label="Bookshelf logo">
+      <div class="logo-images">
+        <svg width="24" height="24">
+          <use href="./images/symbol-defs.svg#icon-logo"></use>
         </svg>
-      </a>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a class="nav-link" href="/src/index.html">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">SHOPPING LIST
-              <svg class="logo-shop">
-                <use href="#"></use>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </nav>
+        <svg class="bookshelf-logo" width="77" height="13">
+          <use href="./images/symbol-defs.svg#bookshelf"></use>
+        </svg>
+      </div>
+    </a>
+    <nav class="header-nav">
+      <ul class="list header-nav-list">
+        <li class="header-nav-item">
+        <a class="header-nav-link current" href="./index.html" id="home-link">HOME</a>
+        </li>
+        <li class="header-nav-item">
+        <a class="header-nav-link shopping-list-header js-header-shop-btn" href="#">SHOPPING LIST
+            <svg class="cart" width="20" height="20">
+              <use href="./images/symbol-defs.svg#bag"></use>
+            </svg>
+            <span class="header-shopping-count is-hidden"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-  <!-- Buttons -->
-  <div class="container-button">
-    <label class="switch">
-      <input id="theme-switch" type="checkbox"/>
-      <span class="slider round"></span>
-    </label>
-    <button class="button-burger js-open-menu">
-      <svg class="svg" width="28" height="28">
-        <use href="#"></use>
-      </svg>
-    </button>
-    <button class="button-burger-close js-close-menu is-hidden">
-      <svg class="svg" width="28" height="28">
-       <use href="#"></use>
-      </svg>
-    </button>
-    <button  class="button-autor mobile-button-autor button-autor-sign"  type="button" id="sing-up">
-      Sign up
-      <svg class="svg-button" width="20" height="20">
-        <use href="#"></use>
-      </svg>
-    </button>
-    <p id="auth-loader">Loading...</p>
-    <ul class="user-bar js-user-bar user-bar-mobile" id="down-list">
-      <li class="user-bar__item">
-
-        <!-- User bar button -->
-        <button
-          class="user-bar-btn js-user-bar-btn"
-          type="button"
-          aria-label="user bar button">
-          <svg class="user-bar-btn__avatar-icon" width="37" height="37">
-            <use href="#"></use>
+    <div class="switcher-burger">
+      <label class="switcher">
+        <input type="checkbox" name="switcher_checkbox" />
+        <span class="slider round"></span>
+      </label>
+  
+      <button class="menu-burger js-open-menu-burger"aria-expanded="false" aria-controls="mobile-menu"
+       id="open-menu-burger" aria-label="Burger menu button">
+        <svg class="menu-burger-icon-open" width="28" height="28">
+          <use href="./images/symbol-defs.svg#burger"></use>
+        </svg>
+      </button>
+  
+      <div class="header-btn-wrapper">
+        <button class="button login-btn js-sign-up-btn" type="button" id="singUpBtnHeader">
+          <svg class="user-icon is-hidden" width="37" height="37">
+            <use href="./images/symbol-defs.svg#icon-user-header"></use>
           </svg>
-          <span class="user-bar-btn__text" id="auth-user"></span>
-          <svg class="user-bar-btn__arrow-icon" width="23" height="26">
+          <span class="sign-up-btn-text">Sign up</span>
+          <svg class="arrow-right" width="20" height="20">
+            <use href="./images/symbol-defs.svg#icon-filed-arrow-down"></use>
+          </svg>
+          <svg class="header-arrow-down is-hidden" width="14" height="7">
             <use href="#"></use>
           </svg>
         </button>
-        <ul class="dropdown">
-          <li class="dropdown-list__item">
-            <!-- Log-out-btn -->
-            <button
-              class="log-out-btn js-log-out-btn"
-              type="button"
-              aria-label="Log out"
-              id="log-out">
-              <span class="log-out-btn__text">Log out</span>
-              <svg class="log-out-arrow" width="20" height="20">
-                <use href="#"></use>
-              </svg>
-            </button>
-          </li>
-        </ul>
-      </li>
-    </ul>
+        <button class="log-out-btn is-hidden" aria-label="Log out button">
+          <span class="log-out-btn-text">Log out</span>
+          <svg class="log-out-arrow-right" width="20" height="20">
+            <use href="#"></use>
+          </svg>
+        </button>
+      </div>
+      <button class="close-mobile-modal-btn" type="button" id="close-mobile-modal-btn">
+        <svg class="mobile-modal-icon-close" width="14" height="14">
+          <use href="./images/symbol-defs.svg#icon-close"></use>
+        </svg>
+      </button>
+    </div>
   </div>
-</div>
-</header>
-
-<!-- Mobile-menu -->
-<div class="mobile-menu js-menu-container">
-<button  class="button-autor mobile-button-autor popopo" type="button" id="sing-up">
-  Sign up
-  <svg class="svg-button" width="20" height="20">
-    <use href="#"></use>
-  </svg>
-</button>
-<ul class="mobile-nav-list">
-  <li class="mobile-nav-item">
-    <a class="header-link-home menu-link-mobail mobile-color header-link-home-modal"
-      href="./index.html" id="home-header-mobile">HOME</a>
-  </li>
-  <li class="mobile-nav-item" >
-    <a class="header-link-shoppingcart menu-link-mobail" href="#" id="shoplist-mobile">
-      <span>SHOPPING LIST</span>
-      <svg class="svg-mobail" width="20" height="20">
-        <use href="#"></use>
-      </svg>
-    </a>
-    <button class="btn-autor is-hidden log-out-mobile" type="button">
-      Log out
-      <svg class="svg-btn-autor" width="20" height="20">
-        <use href="#"></use>
-      </svg>
-    </button>
-  </li>
-</ul>
-<img class="img mobile-nav-item-img" src="#" alt="book"/>
-</div>
+  

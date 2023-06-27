@@ -1,0 +1,16 @@
+.emptyPage__container {
+    display: none;
+}
+
+.emptyPage__p {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.Shop-list__title {
+    span {
+        color: $sidebar-activ-text;
+    }
+}

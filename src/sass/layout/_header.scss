@@ -3,8 +3,8 @@
   justify-content: space-between;
   padding-right: 20px;
   padding-left: 20px;
-  border: 1.5px solid $primary-color;
-  background-color: var(--bg-color);
+  border: 1.5px solid var(--logo-text);
+  background-color: var(--header-bg-color);
   border-radius: 0px 0px 8px 8px;
   margin-left: auto;
   margin-right: auto;
@@ -31,6 +31,7 @@
 .bookshelf-logo {
   fill: $logo-text;
   margin-left: 8px;
+  fill: var(--logo-text);
 }
 
 .header-nav {
@@ -59,7 +60,9 @@
 .shopping-list-header {
   display: flex;
   gap: 8px;
+  color: var(--logo-text);
   align-items: center;
+  
 }
 
 .switch-burger {
@@ -78,6 +81,10 @@
 .menu-burger-open {
   stroke: $primary-color;
   background:$header-bg-color;
+  // stroke: var(--logo-text);
+  fill: var(--logo-text);
+  // background-color: var(--bg-color);
+  
 }
 
 .menu-burger-open:hover,
@@ -177,6 +184,8 @@ input:checked + .slider:before {
 
 .cart {
   fill: $primary-color;
+  fill: var(--logo-text);
+  
 }
 
 .current {

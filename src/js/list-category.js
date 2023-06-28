@@ -19,6 +19,8 @@ const bookList = document.querySelector('.book-list');
 
 categoryList.addEventListener('click', onCategoryClick);
 createMarkup()
+bookList.addEventListener('click', onCategoryClick);
+
 const URL = 'https://books-backend.p.goit.global/books/category';
 
 function fetchCategory(query) {
@@ -46,7 +48,11 @@ function renderCategoryBooks(books) {
           }
           return `
           <li class="book-card" data-id="${book._id}">
-            <img class="book-img" src="${book.book_image}" alt="${book.title}" loading="lazy" width="" />
+          <div class="image-overlay"> 
+            <img class="book-image" src="${book.book_image}" alt="${book.title}" loading="lazy" width="" />
+            <div class="pop-up-window">
+                <p class="pop-up-text">quick view</p>
+              </div></div>
             <h3 class="book-name">${sliceTitle}</h3>
             <p class="book-author">${sliceAuthor}</p>
           </li>
@@ -59,23 +65,34 @@ function renderCategoryBooks(books) {
 
 function onCategoryClick(e) {
   const category = e.target.dataset.name;
-
+  console.log(category);
   if (!category) return;
-const activeCategory = categoryList.querySelector('.category-active');
-  if (activeCategory) {
+  const activeCategory = categoryList.querySelector('.category-active');
+  const clickCategory = categoryList.querySelector(`[data-name='${category}']`);
+
+ if (activeCategory) {
     activeCategory.classList.remove('category-active');
   }
-
-  // Добавить стиль .category-active к выбранному элементу
   e.target.classList.add('category-active');
+  clickCategory.classList.add('category-active');
   if (category === 'allBooks') {
   createMarkup()
-    categoryName.textContent = 'Best Seller Books';
+    categoryName.innerHTML = parseTitle('Best Seller Books');
     return;
   }
 
+
+
   getCategoryBooks(category);
-  categoryName.textContent = category;
+ categoryName.innerHTML = parseTitle(category);
+
+}
+
+function parseTitle(title) {
+  const words = title.split(' ');
+  const lastWord = words.pop();
+  const parsedTitle = words.join(' ') + ' <span class="title-blue">' + lastWord + '</span>';
+  return parsedTitle;
 }
 
 async function getCategoryBooks(category) {
@@ -117,7 +134,12 @@ function createGalleryItem(data) {
           }
           return `
             <li class="book-card" data-id="${el._id}">
-              <img class="book-image" src="${el.book_image}" alt="${el.title}" loading="lazy" />
+            <div class="image-overlay"> 
+            <img class="book-image" src="${el.book_image}" alt="${el.title}" loading="lazy" />
+              <div class="pop-up-window">
+                <p class="pop-up-text">quick view</p>
+              </div>
+            </div> 
               <h3 class="book-name">${sliceTitle}</h3>
               <p class="author-book">${el.author}</p>
             </li>
@@ -131,12 +153,14 @@ function createGalleryItem(data) {
           <ul class="categories">
             ${booksMarkup}
           </ul>
+          <button class="see-more-btn" data-name="${element.list_name}">See More</button>
         </li>
-        <button class="see-more-btn">See More</button>
+        
       `;
     })
     .join('');
 
   bookList.innerHTML = markup;
+
 }
 

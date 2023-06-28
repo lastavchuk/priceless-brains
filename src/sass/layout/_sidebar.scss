@@ -45,31 +45,49 @@
 }
 
 .category .item {
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
-
+    font-size: 18px;
+    line-height: 1.33;
+letter-spacing: -0.36px;
 }
+
 
 .category .item:hover,
 .category .item:focus {
     cursor: pointer;
+    font-size: 18px;
+    font-family: DM Sans;
     font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    text-transform: uppercase;
     transform: scaleY(1.1);
     transition: font-weight 250ms linear;
-    color: $blue-color;
+    color: var(--blue-color);
     text-transform: uppercase;
-    font-weight: 700;
-    color: $blue-color;
 }
 
-.category .active {
+.category-active {
     text-transform: uppercase;
+    white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
     font-weight: 700;
-    color: $blue-color;
+    overflow: hidden;
+    color: var(--blue-color);
 }
 
 .category .item:first-child~.item {
     padding-top: 24px;
+}
+
+
+.book-list{
+    display: block;
+}
+
+.book-allcat {
+    display: flex;
+   
 }

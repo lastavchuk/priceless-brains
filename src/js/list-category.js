@@ -38,11 +38,17 @@ function renderCategoryBooks(books) {
           if (book.title.length > 20) {
             const lastSpaceIndex = book.title.lastIndexOf(' ', 20);
             sliceTitle = book.title.slice(0, lastSpaceIndex) + '...';
-          } return `
+          }
+          let sliceAuthor = book.author;
+      if (book.author.length > 21) {
+        const lastSpaceIndex = book.author.lastIndexOf(' ', 21);
+        sliceAuthor = book.author.slice(0, lastSpaceIndex) + '...';
+          }
+          return `
           <li class="book-card" data-id="${book._id}">
-            <img class="book-image" src="${book.book_image}" alt="${book.title}" loading="lazy" width="" />
+            <img class="book-img" src="${book.book_image}" alt="${book.title}" loading="lazy" width="" />
             <h3 class="book-name">${sliceTitle}</h3>
-            <p class="book-author">${book.author}</p>
+            <p class="book-author">${sliceAuthor}</p>
           </li>
         `
         })
@@ -55,7 +61,13 @@ function onCategoryClick(e) {
   const category = e.target.dataset.name;
 
   if (!category) return;
+const activeCategory = categoryList.querySelector('.category-active');
+  if (activeCategory) {
+    activeCategory.classList.remove('category-active');
+  }
 
+  // Добавить стиль .category-active к выбранному элементу
+  e.target.classList.add('category-active');
   if (category === 'allBooks') {
   createMarkup()
     categoryName.textContent = 'Best Seller Books';
@@ -95,25 +107,39 @@ async function createMarkup() {
 
 function createGalleryItem(data) {
   const markup = data
-    .map(element => {
-      let sliceTitle = element.books[0].title;
-      if (element.books[0].title.length > 21) {
-        const lastSpaceIndex = element.books[0].title.lastIndexOf(' ', 21);
-        sliceTitle = element.books[0].title.slice(0, lastSpaceIndex) + '...';
-      }
+    .map((element) => {
+      const booksMarkup = element.books
+        .map((el) => {
+          let sliceTitle = el.title;
+          if (el.title.length > 21) {
+            const lastSpaceIndex = el.title.lastIndexOf(' ', 21);
+            sliceTitle = el.title.slice(0, lastSpaceIndex) + '...';
+          }
+          return `
+            <li class="img-and-title" data-id="${el._id}">
+              <img class="book-image" src="${el.book_image}" alt="${el.title}" loading="lazy" />
+              <h3 class="book-name">${sliceTitle}</h3>
+              <p class="author-book">${el.author}</p>
+            </li>
+          `;
+        })
+        .join('');
+
       return `
-        <li data-id="${element.books[0]._id}">
+        <li class="books-allcat">
           <h2 class="category-item">${element.list_name}</h2>
-          <img class="book-img" src="${element.books[0].book_image}" alt="${element.books[0].title}" loading="lazy" width="" />
-          <h3 class="book-name">${sliceTitle}</h3>
-          <p class="book-author">${element.books[0].author}</p>
+          <ul class="book-allcat">
+            ${booksMarkup}
+          </ul>
           <button class="see-more-btn">See More</button>
         </li>
       `;
     })
     .join('');
+
   bookList.innerHTML = markup;
 }
+
 
 
 

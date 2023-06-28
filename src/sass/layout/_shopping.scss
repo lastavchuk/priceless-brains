@@ -82,7 +82,7 @@ img.book__card-img {
     font-size: 14px;
     line-height: 18px;
     letter-spacing: -0.56px;
-    margin-bottom: 14px;
+    margin-bottom: 29px;
 }
 
 .book__card-author {
@@ -118,9 +118,10 @@ img.book__card-img {
 .flex {
     display: flex;
 }
-
-.trash-svg {
-    fill: white;
+.book__card-delBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pagination__circle {
@@ -170,8 +171,46 @@ img.book__card-img {
 .from-tablet {
     display: none;
 }
+.two-arrow-left {
+    fill: $second-color;
+}
+.arrow-left {
+    fill: $second-color;
+}
+.arrow-right {
+    fill: $primary-color;
+}
+.svgSetUp {
+    width: 28px;
+    height: 28px;
+}
+.svgSetUp.arrow-left {
+    width: 13;
+    height: 13;
+}
+.svgSetUp.arrow-right {
+    width: 13;
+    height: 13;
+}
+.svgSetUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media screen and (min-width: 768px) {
+    .svgSetUp {
+        width: 30px;
+        height: 30px;
+    }
+    .svgSetUp.arrow-left {
+        width: 14;
+        height: 14;
+    }
+    .svgSetUp.arrow-right {
+        width: 14;
+        height: 14;
+    }
     .Shop-list__empty-title {
         margin-bottom: 140px;
     }

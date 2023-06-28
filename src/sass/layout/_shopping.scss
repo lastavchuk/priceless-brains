@@ -1,4 +1,10 @@
 .emptyPage__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.empty-page {
     display: none;
 }
 
@@ -7,11 +13,28 @@
     line-height: 18px;
     letter-spacing: -0.28px;
     color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 14px;
 }
 
 .Shop-list__title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: -1.28px;
     margin-top: 40px;
     margin-bottom: 40px;
+    margin-left: 20px;
+    span {
+        color: $sidebar-activ-text;
+    }
+}
+.Shop-list__empty-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: -1.28px;
+    margin-top: 40px;
+    margin-bottom: 120px;
     margin-left: 20px;
     span {
         color: $sidebar-activ-text;
@@ -23,14 +46,13 @@
     border: 2px solid rgba(79, 46, 232, 0.4);
     display: flex;
     padding: 14px;
-}
-.book__card:not(:last-child) {
     margin-bottom: 20px;
 }
 
 img.book__card-img {
     border-radius: 8px;
     max-width: none;
+    width: 100px;
 }
 
 .book__card-info {
@@ -99,4 +121,120 @@ img.book__card-img {
 
 .trash-svg {
     fill: white;
+}
+
+.pagination__circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 38px;
+    border: 1px solid #111;
+}
+.black {
+    background: $primary-color;
+}
+.white {
+    background: white;
+}
+.yellow {
+    background: $yellow-color;
+}
+
+.pagination {
+    display: flex;
+}
+
+.pagination__circle {
+    margin-left: 8px;
+}
+.pagination__circle.margin {
+    margin-left: 16px;
+}
+
+.book__card-platforms-img.amazon {
+    width: 32px;
+    height: 11px;
+}
+.book__card-platforms-img {
+    width: 16px;
+    height: 16px;
+}
+.pagination__circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.color {
+    color: white;
+}
+
+.from-tablet {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .Shop-list__empty-title {
+        margin-bottom: 140px;
+    }
+    .pagination__circle.from-tablet {
+        display: flex;
+    }
+    .Shop-list__title {
+        font-size: 48px;
+        line-height: 52px;
+        letter-spacing: -1.92px;
+    }
+    .emptyPage__p {
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: -0.36px;
+    }
+    .emptyPage__img {
+        width: 322px;
+        height: auto;
+    }
+    img.book__card-img {
+        width: 116px;
+    }
+    .book__card {
+        padding: 30px 24px;
+    }
+    .book__card-info-desc {
+        margin-bottom: 48px;
+    }
+    .book__card-platforms-img.amazon {
+        width: 48px;
+        height: 15px;
+    }
+    .book__card-platforms-img {
+        width: 28px;
+        height: 28px;
+    }
+    .first {
+        margin-left: auto;
+    }
+    .last {
+        margin-right: auto;
+    }
+    .book__card:last-child {
+        margin-bottom: 40px;
+    }
+    .pagination__circle {
+        width: 44px;
+        height: 44px;
+    }
+    .pagination__circle {
+        margin-left: 10px;
+    }
+    .pagination__circle.margin {
+        margin-left: 24px;
+    }
+    .pagination__circle.first {
+        margin-left: auto;
+    }
+    .pagination__circle.last {
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1280px) {
 }

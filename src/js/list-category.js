@@ -33,14 +33,19 @@ function renderCategoryBooks(books) {
   } else {
     const markup = books
       .map(
-        book => `
+        book => {
+          let sliceTitle = book.title;
+          if (book.title.length > 20) {
+            const lastSpaceIndex = book.title.lastIndexOf(' ', 20);
+            sliceTitle = book.title.slice(0, lastSpaceIndex) + '...';
+          } return `
           <li class="book-card" data-id="${book._id}">
             <img class="book-image" src="${book.book_image}" alt="${book.title}" loading="lazy" width="" />
-            <h3 class="book-name">${book.title}</h3>
+            <h3 class="book-name">${sliceTitle}</h3>
             <p class="book-author">${book.author}</p>
           </li>
         `
-      )
+        })
       .join('');
     bookList.innerHTML = markup;
   }
@@ -90,17 +95,22 @@ async function createMarkup() {
 
 function createGalleryItem(data) {
   const markup = data
-    .map(
-      element => `
-        <li data-id="${element.books[0]._id}>
+    .map(element => {
+      let sliceTitle = element.books[0].title;
+      if (element.books[0].title.length > 21) {
+        const lastSpaceIndex = element.books[0].title.lastIndexOf(' ', 21);
+        sliceTitle = element.books[0].title.slice(0, lastSpaceIndex) + '...';
+      }
+      return `
+        <li data-id="${element.books[0]._id}">
           <h2 class="category-item">${element.list_name}</h2>
           <img class="book-img" src="${element.books[0].book_image}" alt="${element.books[0].title}" loading="lazy" width="" />
-          <h3 class="book-name">${element.books[0].title}</h3>
+          <h3 class="book-name">${sliceTitle}</h3>
           <p class="book-author">${element.books[0].author}</p>
           <button class="see-more-btn">See More</button>
         </li>
-      `
-    )
+      `;
+    })
     .join('');
   bookList.innerHTML = markup;
 }

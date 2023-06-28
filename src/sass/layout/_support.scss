@@ -9,7 +9,7 @@
         var(--white-color) 100%
     );
     box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
-    color: var(--header-bg-color);
+    color: var(--white-color);
 }
 
 .support-title-wrapper {
@@ -28,7 +28,7 @@
 }
 
 .support-title-icon {
-    fill: var(--header-bg-color);
+    fill: var(--white-color);
 }
 
 .support-link {
@@ -64,11 +64,11 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: var(--header-bg-color);
+    background-color: var(--white-color);
 }
 
 .support-svg-down {
-    fill: var(--sidebar-activ-text);
+    fill: var(--blue-color);
 }
 
 .support-btn-more.totop {

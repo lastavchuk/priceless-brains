@@ -6,6 +6,7 @@ themeToggle.addEventListener('change', handlerThemeChange);
 let getMode = localStorage.getItem('mode');
 if (getMode && getMode === 'dark') {
     body.classList.add('dark');
+    themeToggle.checked = true;
 } else {
     body.classList.remove('dark');
 }

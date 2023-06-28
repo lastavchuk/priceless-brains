@@ -116,7 +116,7 @@ function createGalleryItem(data) {
             sliceTitle = el.title.slice(0, lastSpaceIndex) + '...';
           }
           return `
-            <li class="img-and-title" data-id="${el._id}">
+            <li class="book-card" data-id="${el._id}">
               <img class="book-image" src="${el.book_image}" alt="${el.title}" loading="lazy" />
               <h3 class="book-name">${sliceTitle}</h3>
               <p class="author-book">${el.author}</p>
@@ -128,20 +128,15 @@ function createGalleryItem(data) {
       return `
         <li class="books-allcat">
           <h2 class="category-item">${element.list_name}</h2>
-          <ul class="book-allcat">
+          <ul class="categories">
             ${booksMarkup}
           </ul>
-          <button class="see-more-btn">See More</button>
         </li>
+        <button class="see-more-btn">See More</button>
       `;
     })
     .join('');
 
   bookList.innerHTML = markup;
 }
-
-
-
-
-
 

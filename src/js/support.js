@@ -46,23 +46,15 @@ const organization = [
     },
 ];
 
-const elements = {
-    supportList: document.querySelector('.support-list'),
-    btnMore: document.querySelector('.support-btn-more'),
-    btnPrev: document.querySelector('.support-btn-prev'),
-};
-
-let amount = 4;
-
-// btnMore.addEventListener('click', handlerClickMore);
-// btnPrev.addEventListener('click', handlerClickPrev);
+const supportList = document.querySelector('.support-list');
+const btnMore = document.querySelector('.support-btn-more');
 
 function createSupportList(arr) {
     console.log(arr);
     return arr
         .map(({ title, url, img }, idx) => {
             return `<li class="support-item">
-            <a href="${url}" target="_blank" rel="noopener noreferrer nofollow">
+            <a class = "support-link" href="${url}" target="_blank" rel="noopener noreferrer nofollow">
                 ${(idx + 1)
                     .toString()
                     .padStart('2', 0)}<img src="${img}" alt="${title}" />
@@ -72,24 +64,38 @@ function createSupportList(arr) {
         .join('');
 }
 
-// function createSupportList(arr) {
-//     let markup = '';
-//     for (let i = 1; i <= 9; i += 1) {
-//         markup += `<li class="support-item"> ${i}
-//             <a href="${organization.url}" target="_blank" rel="noopener noreferrer nofollow">
-//                 <img src="${organization.img}" alt="${organization.title}" />
-//             </a>
-//         </li>`;
-//     }
-// }
+supportList.insertAdjacentHTML('beforeend', createSupportList(organization));
+console.log(supportList);
 
-elements.supportList.insertAdjacentHTML(
-    'beforeend',
-    createSupportList(organization)
-);
+btnMore.addEventListener('click', handlerClickMore);
 
-// function handlerClickMore() {
-//     if (amount < supportList.length {
+let itemsVisible;
 
-//     })
-// }
+function setItemsVisible() {
+    if (window.innerWidth <= 768) {
+        itemsVisible = 4;
+    } else {
+        itemsVisible = 6;
+    }
+}
+
+function scrollBtn() {
+    const position = supportList.scrollTop;
+    const maxPosition = supportList.scrollHeight - supportList.clientHeight;
+    if (position < maxPosition) {
+        btnMore.classList.add('totop');
+    }
+
+    if (position > 0) {
+        btnMore.classList.remove('totop');
+    }
+}
+
+function handlerClickMore() {
+    if (btnMore.classList.contains('totop')) {
+        supportList.scrollTop -= supportList.clientHeight;
+    } else {
+        supportList.scrollTop += supportList.clientHeight;
+    }
+    scrollBtn();
+}

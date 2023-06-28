@@ -5,8 +5,8 @@ html {
 body {
     font-family: 'DM Sans', sans-serif;
     font-style: normal;
-    background-color: $bg-color;
-    color: $primary-color;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
 }
 
 h1,

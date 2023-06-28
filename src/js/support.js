@@ -1,43 +1,53 @@
+import stc from '../images/js-project-png/STC_x1.png';
+import hoppe from '../images/js-project-png/project-hope_x1.png';
+import united from '../images/js-project-png/u24_x1.png';
+import international from '../images/js-project-png/IMC_x1.png';
+import medicins from '../images/js-project-png/MSF_x1.png';
+import razom from '../images/js-project-png/razom_x1.png';
+import action from '../images/js-project-png/AAH_x1.png';
+import worldVision from '../images/js-project-png/WV_x1.png';
+// import serhiyPrytula from '../images/js-project-png/MSF_x1.png';
+
 const organization = [
     {
         title: 'Save the Children',
         url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-        img: './images/js-project-png/STC_x1.png',
+        img: stc,
     },
     {
         title: 'Project HOPE',
         url: 'https://www.projecthope.org/country/ukraine/',
-        img: './images/js-project-png/project-hope_x1.png',
+        img: hoppe,
     },
     {
         title: 'UNITED24',
         url: 'https://u24.gov.ua/uk',
-        img: '../images/js-project-png/u24_x1.png',
+        img: united,
     },
     {
         title: 'International Medical Corps',
         url: 'https://internationalmedicalcorps.org/country/ukraine/',
-        img: '../images/js-project-png/IMC_x1.png',
+        img: international,
     },
     {
         title: 'Medicins Sans Frontieres',
         url: 'https://www.msf.org/ukraine',
-        img: '../images/js-project-png/MSF_x1.png',
+        img: medicins,
     },
     {
         title: 'RAZOM',
         url: 'https://www.razomforukraine.org/',
-        img: '../images/js-project-png/razom_x1.png',
+        img: razom,
     },
     {
         title: 'Action against hunger',
         url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
-        img: '../images/js-project-png/AAH_x1.png',
+        img: action,
     },
     {
         title: 'World vision',
         url: 'https://www.wvi.org/emergencies/ukraine',
-        img: '../images/js-project-png/WV_x1.png',
+        img: worldVision,
     },
     {
         title: 'Serhiy Prytula Charity Foundation',
@@ -74,9 +84,9 @@ let itemsVisible;
 function setItemsVisible() {
     if (window.innerWidth <= 768) {
         itemsVisible = 4;
-    } else {
-        itemsVisible = 6;
+        return;
     }
+    itemsVisible = 6;
 }
 
 function scrollBtn() {

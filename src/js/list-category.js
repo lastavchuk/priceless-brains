@@ -52,8 +52,8 @@ function onCategoryClick(e) {
   if (!category) return;
 
   if (category === 'allBooks') {
-    bookList.innerHTML = '';
-    categoryName.textContent = '';
+  createMarkup()
+    categoryName.textContent = 'Best Seller Books';
     return;
   }
 

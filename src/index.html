@@ -11,23 +11,26 @@
             href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="./sass/main.scss" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
         />
+        <link rel="stylesheet" href="./sass/main.scss" />
         <script type="module" src="./js/index.js"></script>
     </head>
     <body>
         <include src="./partials/header.html"></include>
-        <main>
-            <include src="./partials/container.html"></include>
-        </main>
-        <aside>
-            <include src="./partials/sidebar.html"></include>
-            <include src="./partials/support.html"></include>
-        </aside>
+        <div class="wrapper container">
+            <main class="main">
+                <include src="./partials/container.html"></include>
+            </main>
+            <aside class="aside">
+                <include src="./partials/sidebar.html"></include>
+                <include src="./partials/support.html"></include>
+            </aside>
+        </div>
 
+        <include src="./partials/auth.html"></include>
         <include src="./partials/modal.html"></include>
         <script type="module" src="./js/index.js"></script>
     </body>

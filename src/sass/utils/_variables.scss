@@ -1,4 +1,42 @@
 // light
+:root {
+    --bg-color: #f6f6f6;
+    --primary-color: #111111;
+    --logo-text: #000000;
+    --header-bg-color: #ffffff;
+    --sidebar-activ-text: #4f2ee8;
+    --scroll-color: #E0E0E0;
+
+    --other-text-color: #111111;
+    --auth-border-color:#111111;
+    --auth-btn-text-color: #F3F3F3;
+    // --sidebar-text:#111111;
+    // --head-text-color: #111111;
+    // --btn-text-see-more: #111111;
+
+    --second-color: #b4afaf;
+    --blue-color: #4f2ee8; // в заголовку span
+    --yellow-color: #eac645; // навігація активна сторінка, стрілки
+    --white-color: #ffffff;
+}
+
+:root body.dark {
+    --bg-color: #202024;
+    --primary-color: #000000;
+    --logo-text: #f3f3f3;
+    --header-bg-color: #111111;
+    --sidebar-activ-text: #eac645;
+    --scroll-color: #202024;
+
+    --other-text-color: #ffffff;
+    --auth-border-color: #F6F6F6;
+    --auth-btn-text-color: #202024;
+    // --sidebar-text: #ffffff;
+    // --head-text-color: #ffffff;
+    // --btn-text-see-more: #ffffff;
+}
+
+// light
 $bg-color: #F6F6F6;
 $primary-color: #111111;
 $logo-text: #000000;
@@ -12,7 +50,7 @@ $other-text-color: #111111;
 
 
 // dark
-.dark-theme{
+.dark-theme {
     $bg-color: #202024;
     $primary-color: #000000;
     $logo-text: #F3F3F3;
@@ -26,10 +64,10 @@ $other-text-color: #111111;
 }
 
 //=== однаковий для обох тем ===
-$second-color: #B4AFAF;
-$blue-color: #4F2EE8; // в заголовку span
-$yellow-color: #EAC645; // навігація активна сторінка, стрілки
+$second-color: #b4afaf;
+$blue-color: #4f2ee8; // в заголовку span
+$yellow-color: #eac645; // навігація активна сторінка, стрілки
 
 $mobile: 375px;
 $tablet: 768px;
-$desktop: 1060px;
+$desktop: 1440px;

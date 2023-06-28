@@ -1,11 +1,12 @@
 html {
     scroll-behavior: smooth;
 }
+
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-style: normal;
-    background-color: var(--white-color);
-    color: var(--text-color);
+    background-color: var(--bg-color);
+    color: var(--primary-color);
 }
 
 h1,
@@ -18,24 +19,29 @@ p {
     margin: 0;
     padding: 0;
 }
+
 img {
     display: block;
     max-width: 100%;
     height: auto;
 }
+
 ul {
     padding: 0;
     margin: 0;
     list-style: none;
 }
+
 a {
     color: inherit;
     text-decoration: none;
 }
+
 a:focus,
 button:focus {
     outline: 1px solid transparent;
 }
+
 button {
     padding: 0;
     border: none;
@@ -43,6 +49,7 @@ button {
     /* font: inherit; */
     cursor: pointer;
 }
+
 address {
     font-style: normal;
 }
@@ -59,41 +66,4 @@ address {
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
-}
-
-.container {
-    max-width: 375px;
-    padding: 0 20px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 768px;
-        padding: 0 32px;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    .container {
-        max-width: 1280px;
-    }
-}
-
-.section {
-    padding-bottom: 80px;
-    background-color: var(--main-color);
-}
-
-@media screen and (min-width: 768px) {
-    .section {
-        padding-bottom: 144px;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    .section {
-        padding-bottom: 150px;
-    }
 }

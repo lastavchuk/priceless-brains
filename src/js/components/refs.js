@@ -1,4 +1,14 @@
 export default {
+  authForm: document.querySelector('.auth'),
+  authBackdrop: document.querySelector('.auth-backdrop'),
+  userNameInput: document.querySelector('#userName'),
+  userEmailInput: document.querySelector('#userEmail'),
+  userPasswordInput: document.querySelector('#userPassword'),
+  authSignUpBtnSubmit: document.querySelector('.btn-submit'),
+  authSignInBtnSubmit: document.querySelector('.authorization-sign-in-btn'),
+  authSignUpBtnChange: document.querySelector('#singUp'),
+  authSignInBtnChange: document.querySelector('#singIn'),
+
     headerUserIcon: document.querySelector('.user-icon'),
     headerSignUpBtnText: document.querySelector('.sign-up-btn-text'),
     headerArrowDownIcon: document.querySelector('.header-arrow-down'),

@@ -1,4 +1,4 @@
-.header {
+.header-container {
   display: flex;
   justify-content: space-between;
   padding-right: 20px;
@@ -23,7 +23,7 @@
   transform: scale(1.03);
 }
 
-.logo-img {
+.logo-images {
   display: flex;
   align-items: center;
 }
@@ -65,7 +65,7 @@
   
 }
 
-.switch-burger {
+.switcher-burger {
   align-items: center;
   display: flex;
 }
@@ -145,15 +145,15 @@ input:checked + .slider:before {
   transform: translateX(20px);
 }
 
-.slider.circle {
+.slider.round {
   border-radius: 34px;
 }
 
-.slider.circle:before {
+.slider.round:before {
   border-radius: 50%;
 }
 
-.btn-login {
+.login-btn {
   display: none;
 }
 
@@ -166,7 +166,7 @@ input:checked + .slider:before {
   transform: scale(1.03);
 }
 
-.btn-wrapper {
+.header-btn-wrapper {
   position: relative;
 }
 
@@ -203,8 +203,8 @@ input:checked + .slider:before {
   fill: $header-bg-color;
 }
 
-.sign-up-btn.grow,
-.burger-sign-up-btn.grow {
+.sign-up-btn-text.grow,
+.burger-sign-up-btn-text.grow {
   font-weight: 700;
   font-size: 22px;
   line-height: calc(29 / 22);
@@ -254,24 +254,14 @@ input:checked + .slider:before {
   display: none;
 }
 
-.close-modal-btn.hidden {
+.close-mobile-modal-btn.hidden {
 display: none;
 }
 
 // responsive
 
-// @media only screen and (min-width: 320px) and (max-width: 576px) {
-//   .header {
-
-//     padding-left: 38px;
-//     padding-right: 38px;
-//     padding: 13px 32px;
-
-//   }
-// }
-
 @media only screen and (min-width: 768px) {
-  .header {
+  .header-container {
     padding-left: 32px;
     padding-right: 32px;
     padding: 13px 32px;
@@ -281,7 +271,7 @@ display: none;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .header {
+  .header-container {
     display: flex;
     gap: 40px;
     padding-left: 24px;
@@ -312,7 +302,7 @@ display: none;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .btn-login {
+  .login-btn {
     margin-left: 26px;
   }
 }
@@ -327,7 +317,7 @@ display: none;
   }
 }
 @media only screen and (min-width: 768px) {
-  .btn-login {
+  .login-btn {
     min-width: 184px;
     height: 48px;
     background-color: $blue-color;

@@ -24,9 +24,8 @@
     justify-content: center;
     margin-bottom: 18px;
 }
-.book-img {
+.book-image {
     border-radius: 8px;
-    margin-bottom: 14px;
     width: 335px;
     height: 485px;
 }
@@ -36,6 +35,7 @@
     font-weight: 700;
     text-transform: uppercase;
     line-height: 18px;
+    margin-top: 14px;
 }
 
 .book-author {
@@ -70,6 +70,12 @@
     display: block;
     margin-left: auto;
 }
+.see-more-btn:hover,
+.see-more-btn:focus {
+    background-color: $blue-color;
+    color: white;
+    transition: color 250ms, background-color 250ms;
+}
 .category-name {
     font-size: 32px;
     font-weight: 700;
@@ -78,7 +84,11 @@
     color: $primary-color;
 }
 
-//========= Вікно що віїзжає quick view
+.book-card:not(:first-child) {
+    display: none;
+}
+
+// ========= Вікно що віїзжає quick view
 .pop-up-window {
     position: absolute;
     bottom: 0;
@@ -106,26 +116,23 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: DM Sans;
-       
-
 }
 
 .image-overlay {
     position: relative;
-    display: inline-block;
+    overflow: hidden;
 }
 
 .image-overlay:hover .pop-up-window,
 .image-overlay:focus .pop-up-window {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0%);
 }
 // =========================================
 // Треба написати формулу яка буде рахувати в точках перелому або ділити на 5 якщо на комп'ютері, на 3 якщо на планшеті
-.book-card{
-    width: 15%;
-}
+// .book-card{
+//     width: 15%;
+// }
 
 @media screen and (min-width: 768px) {
     .top-books {
@@ -133,9 +140,14 @@
     }
     .category-name {
         font-size: 48px;
-    font-weight: 700;
-    line-height: 52px;
+        font-weight: 700;
+        line-height: 52px;
         margin: 100px 0 40px 0;
+    }
+    .title-blue {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 52px;
     }
     .categories {
         display: flex;
@@ -144,8 +156,9 @@
     }
     .see-more-btn {
         margin-top: 20px;
+        margin-bottom: 0px;
     }
-    .book-img {
+    .book-image {
         width: 218px;
         height: 316px;
     }
@@ -158,23 +171,29 @@
     .author-book {
         margin-bottom: 0;
     }
+    .book-card:nth-last-child(-n + 2) {
+        display: block;
+    }
 }
 
 @media screen and (min-width: 1280px) {
+    .book-list {
+        gap: 40px 24px;
+    }
     .top-books {
         margin: 40px 0;
     }
     .category-name {
         margin: 40px 0;
     }
-    .categories {
-        gap: 25px;
-    }
-    .book-img {
+    .book-image {
         width: 180px;
         height: 256px;
     }
     .see-more-btn {
         margin-top: 32px;
+    }
+    .book-card:nth-last-child(-n + 4) {
+        display: block;
     }
 }

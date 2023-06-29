@@ -1,0 +1,48 @@
+.footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.heart-icon{
+    fill: red
+}
+.footer__container {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--logo-text);
+}
+.first-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.second-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.second-line__text {
+    display: inline-flex;
+}
+
+.modal-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+    .footer__container {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+    }
+
+    .first-line {
+        margin-bottom: 0;
+    }
+
+    .second-line {
+        gap: 5px;
+    }
+}

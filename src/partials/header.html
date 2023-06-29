@@ -1,6 +1,6 @@
-<div class="header">
+<div class="header-container">
   <a class="logo" href="./index.html" aria-label="Bookshelf logo">
-    <div class="logo-img">
+    <div class="logo-images">
       <svg width="24" height="24">
         <use href="./images/symbol-defs.svg#icon-logo"></use>
       </svg>
@@ -10,11 +10,11 @@
     </div>
   </a>
   <nav class="header-nav">
-    <ul class="header-nav-list">
-      <li class="header-nav-various">
+    <ul class="list header-nav-list">
+      <li class="header-nav-item">
       <a class="header-nav-link current js-header-home-btn" href="./index.html" id="home-link">HOME</a>
       </li>
-      <li class="header-nav-various">
+      <li class="header-nav-item">
       <a class="header-nav-link shopping-list-header js-header-shop-btn" href="./shopping-list.html">SHOPPING LIST
           <svg class="cart" width="20" height="20"><use href="./images/symbol-defs.svg#bag"></use></svg>
           <span class="is-hidden"></span>
@@ -23,21 +23,21 @@
     </ul>
   </nav>
 
-  <div class="switch-burger">
-    <label class="switch"><input type="checkbox" name="switcher_checkbox"/>
-      <span class="slider circle" ></span></label>
+  <div class="switcher-burger">
+    <label class="switch js-themes"><input type="checkbox" name="switcher_checkbox"/>
+      <span class="slider round" ></span></label>
     <button class="menu-burger js-open-menu-burger"aria-expanded="false" aria-controls="mobile-menu "
      id="open-menu-burger" aria-label="Burger menu button" >
-      <svg class="menu-burger-open"  width="28" height="28"  >
+      <svg class="menu-burger-icon-open"  width="28" height="28"  >
         <use href="./images/symbol-defs.svg#burger" ></use>
       </svg>
     </button>
-    <div class="btn-wrapper">
-      <button class="button btn-login js-sign-up-btn" type="button" id="signUpBtnHeader">
+    <div class="header-btn-wrapper">
+      <button class="button login-btn js-sign-up-btn" type="button" id="signUpBtnHeader">
         <svg class="user-icon is-hidden" width="37" height="37">
           <use href="./images/symbol-defs.svg#icon-user-header"></use>
         </svg>
-        <span class="sign-up-btn">Sign up</span>
+        <span class="sign-up-btn-text">Sign up</span>
         <svg class="arrow-right" width="20" height="20">
           <use href="./images/symbol-defs.svg#pointing-arrow-right"></use>
         </svg>
@@ -52,8 +52,8 @@
         </svg>
       </button>
     </div>
-    <button class="close-modal-btn hidden" type="button" id="close-mobile-modal-btn">
-      <svg class="mobile-modal-close" width="14" height="14">
+    <button class="close-mobile-modal-btn" type="button" id="close-mobile-modal-btn">
+      <svg class="mobile-modal-icon-close" width="14" height="14">
         <use href="./images/symbol-defs.svg#icon-close"></use>
       </svg>
     </button>

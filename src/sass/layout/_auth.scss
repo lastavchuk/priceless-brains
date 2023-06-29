@@ -43,7 +43,9 @@
     transform: translate(-50%, -50%) scale(1);
     transition: transform var(--tr-duration) var(--tr-cubic);
 }
-
+.auth-icon-close{
+    stroke: inherit;
+}
 .btn-close {
     position: absolute;
     top: 14px;
@@ -54,10 +56,11 @@
 
     cursor: pointer;
 
-    border: 1px solid transparent;
+    // border: 1px solid transparent;
 
-    // background-color: var(--accent-color);
-    color: var(--auth-border-color);
+    background-color: transparent;
+    stroke: var(--other-text-color);
+    // color: var(--auth-border-color);
 
     transition-property: color, background-color, border-color;
     transition-duration: var(--tr-duration);
@@ -67,7 +70,7 @@
 .btn-close:hover,
 .btn-close:focus {
     background-color: var(--blue-color);
-    color: var(--white-color);
+    stroke: var(--white-color);
 }
 .btn-submit{
     width: 100%;

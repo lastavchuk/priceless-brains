@@ -27,9 +27,9 @@
     left: 50%;
     width: 100%;
     max-width: 335px;
-    background-color: $header-bg-color;
+    background-color: var(--header-bg-color);
     padding: 40px 24px;
-    border: 2px solid $other-text-color;
+    border: 2px solid var(--other-text-color);
     border-radius: 20px;
     transform: translate(-50%, -50%) scale(1);
     transition: transform 250ms ease-in-out;
@@ -45,14 +45,17 @@
     width: 24px;
     height: 24px;
     border: none;
+    border-radius: 50%;
     background-color: transparent;
     padding: 0;
+    overflow: hidden;
 }
 
 .thumb {
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     width: 287px;
+    height: 408px;
 }
 
 .modal-book {
@@ -63,11 +66,12 @@
 
 .book-img {
     width: 287px;
+    height: 408px;
 }
 
 .name {
+    color: var(--other-text-color);
     font-size: 16px;
-
     font-weight: 700;
     line-height: 18px;
     letter-spacing: -0.64px;
@@ -76,9 +80,8 @@
 }
 
 .author {
-    color: $bg-color;
+    color: var(--second-color);
     font-size: 12px;
-
     font-style: italic;
     line-height: 14px;
     letter-spacing: -0.48px;
@@ -88,7 +91,7 @@
 
 .descr {
     font-size: 14px;
-
+    color: var(--other-text-color);
     line-height: 18px;
     letter-spacing: -0.56px;
     margin-top: 18px;
@@ -110,7 +113,7 @@
 .modal-btn {
     background-color: transparent;
     font-size: 14px;
-
+    color: var(--other-text-color);
     font-weight: 700;
     line-height: 18px;
     letter-spacing: -0.14px;
@@ -118,11 +121,24 @@
     margin-top: 40px;
     padding: 14px 28px;
     border-radius: 40px;
-    border: 2px solid $sidebar-activ-text;
+    border: 2px solid var(--sidebar-activ-text);
+    transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+.modal-btn:hover {
+    transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+    background-color: var(--sidebar-activ-text);
+    color: var(--white-color);
+}
+.modal-close-svg:hover {
+    transition: background-color 250ms ease-in-out, stroke 250ms ease-in-out;
+    background-color: var(--sidebar-activ-text);
+    stroke: var(--white-color);
 }
 
 .modal-close-svg {
-    stroke: $other-text-color;
+    transition: background-color 250ms ease-in-out, stroke 250ms ease-in-out;
+    stroke: var(--other-text-color);
 }
 .congratulations {
     display: flex;
@@ -130,7 +146,7 @@
     flex-direction: column;
     margin-top: 8px;
 
-    color: rgba(17, 17, 17, 0.5);
+    color: var(--congrat-text-color);
     text-align: center;
     font-size: 10px;
     line-height: 12px;
@@ -146,6 +162,11 @@
 
     .thumb {
         width: 192px;
+        height: 281px;
+    }
+    .book-img {
+        width: 192px;
+        height: 281px;
     }
 
     .modal-book {
@@ -158,6 +179,7 @@
         display: flex;
         flex-direction: column;
         align-items: start;
+        width: 283px;
         margin-left: 24px;
     }
 
@@ -190,8 +212,7 @@
         width: 324px;
         margin-left: auto;
         margin-right: auto;
-        color: rgba(17, 17, 17, 0.5);
-
+        color: var(--congrat-text-color);
         font-size: 12px;
         line-height: 14px;
         letter-spacing: -0.48px;

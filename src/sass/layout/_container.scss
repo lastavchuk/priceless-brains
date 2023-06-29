@@ -26,7 +26,6 @@
 }
 .book-image {
     border-radius: 8px;
-    margin-bottom: 14px;
     width: 335px;
     height: 485px;
 }
@@ -36,6 +35,7 @@
     font-weight: 700;
     text-transform: uppercase;
     line-height: 18px;
+    margin-top: 14px;
 }
 
 .book-author {
@@ -70,6 +70,12 @@
     display: block;
     margin-left: auto;
 }
+.see-more-btn:hover,
+.see-more-btn:focus {
+    background-color: $blue-color;
+    color: white;
+    transition: color 250ms, background-color 250ms;
+}
 .category-name {
     font-size: 32px;
     font-weight: 700;
@@ -77,6 +83,7 @@
     margin: 40px 0;
     color: $primary-color;
 }
+
 .book-card:not(:first-child) {
     display: none;
 }
@@ -109,18 +116,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: DM Sans;
 }
 
 .image-overlay {
     position: relative;
-    display: inline-block;
+    overflow: hidden;
 }
 
 .image-overlay:hover .pop-up-window,
 .image-overlay:focus .pop-up-window {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0%);
 }
 // =========================================
 // Треба написати формулу яка буде рахувати в точках перелому або ділити на 5 якщо на комп'ютері, на 3 якщо на планшеті

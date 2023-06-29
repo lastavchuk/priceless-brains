@@ -14,6 +14,7 @@
                 name="name"
                 autocomplete="off"
                 required
+                id="userName"
                 minlength="3"
             />
 
@@ -25,6 +26,7 @@
                 autocomplete="off"
                 required
                 minlength="8"
+                id="userEmail"
             />
             <!-- <svg class="icon-name" width="18" height="24">
                 <use href="./images/symbol-defs.svg#icon-mail-02"></use>
@@ -37,21 +39,24 @@
                 autocomplete="off"
                 required
                 minlength="8"
+                id="userPassword"
             />
             <!-- <svg class="icon-pass" width="18" height="24">
                 <use href="./images/symbol-defs.svg#icon-lock"></use>
             </svg> -->
             <button class="btn-submit" type="submit">Sign up</button>
+            <button class="authorization-sign-in-btn is-hidden" type="submit">
 
             <div class="auth-btn-group">
                 <button
                     type="button"
                     class="auth-link auth-activ-link"
                     data-action="sign-up"
+                    id="singUp"
                 >
                     sign up
                 </button>
-                <button type="button" class="auth-link" data-action="sign-in">
+                <button type="button" class="auth-link" data-action="sign-in" id="singIn">
                     sign in
                 </button>
             </div>

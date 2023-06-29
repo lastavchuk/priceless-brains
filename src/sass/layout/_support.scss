@@ -41,8 +41,13 @@
     letter-spacing: -0.56px;
 }
 .support-link img {
-    filter: brightness(0) invert(1);
+    max-height: 32px;
+    filter: grayscale(100%) invert(50%) brightness(200%);
 }
+
+// .slider-wrapper {
+//     overflow: hidden;
+// }
 
 .support-list {
     height: 188px;

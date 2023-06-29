@@ -6,7 +6,7 @@ import medicins from '../images/js-project-png/MSF_x1.png';
 import razom from '../images/js-project-png/razom_x1.png';
 import action from '../images/js-project-png/AAH_x1.png';
 import worldVision from '../images/js-project-png/WV_x1.png';
-// import serhiyPrytula from '../images/js-project-png/MSF_x1.png';
+import serhiyPrytula from '../images/js-project-png/segiy-prytula_x1.png';
 
 const organization = [
     {
@@ -52,7 +52,7 @@ const organization = [
     {
         title: 'Serhiy Prytula Charity Foundation',
         url: 'https://prytulafoundation.org/en',
-        img: '../images/js-project-png/segiy-prytula_x1.png',
+        img: serhiyPrytula,
     },
 ];
 
@@ -67,7 +67,10 @@ function createSupportList(arr) {
             <a class = "support-link" href="${url}" target="_blank" rel="noopener noreferrer nofollow">
                 ${(idx + 1)
                     .toString()
-                    .padStart('2', 0)}<img src="${img}" alt="${title}" />
+                    .padStart(
+                        '2',
+                        0
+                    )}<img src="${img}" alt="${title}" loading="lazy" />
             </a>
         </li>`;
         })
@@ -92,11 +95,12 @@ function setItemsVisible() {
 function scrollBtn() {
     const position = supportList.scrollTop;
     const maxPosition = supportList.scrollHeight - supportList.clientHeight;
-    if (position < maxPosition) {
+    const scrollBottom = maxPosition - position;
+    if (scrollBottom < maxPosition) {
         btnMore.classList.add('totop');
     }
 
-    if (position > 0) {
+    if (!position) {
         btnMore.classList.remove('totop');
     }
 }

@@ -78,12 +78,53 @@
     color: $primary-color;
 }
 
-.name-blue {
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 38px;
-    margin: 40px 0;
-    color: $blue-color;
+//========= Вікно що віїзжає quick view
+.pop-up-window {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    border-radius: 0 0 8px 8px;
+    width: 100%;
+    height: 70px;
+    opacity: 0;
+    background: $yellow-color;
+    user-select: none;
+    transition-duration: 250ms;
+}
+
+.pop-up-text {
+    letter-spacing: -0.56px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $other-text-color;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: calc(18 / 14);
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: DM Sans;
+       
+
+}
+
+.image-overlay {
+    position: relative;
+    display: inline-block;
+}
+
+.image-overlay:hover .pop-up-window,
+.image-overlay:focus .pop-up-window {
+    opacity: 1;
+    transform: translateY(0);
+}
+// =========================================
+// Треба написати формулу яка буде рахувати в точках перелому або ділити на 5 якщо на комп'ютері, на 3 якщо на планшеті
+.book-card{
+    width: 15%;
 }
 
 @media screen and (min-width: 768px) {
@@ -98,7 +139,6 @@
     }
     .categories {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
         gap: 25px;
     }

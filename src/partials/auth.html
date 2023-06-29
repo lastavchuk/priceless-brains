@@ -1,0 +1,60 @@
+<div class="auth-backdrop is-hidden" data-backdrop>
+    <div class="auth-modal">
+        <button class="btn-close" type="button" data-close-auth>
+            <svg class="icon-close" width="20" height="20">
+                <use href="./images/symbol-defs.svg#icon-close"></use>
+            </svg>
+        </button>
+
+        <form id="auth" class="auth">
+            <label class="auth-label" for="name">Name</label>
+            <input
+                class="auth-input"
+                type="text"
+                name="name"
+                autocomplete="off"
+                required
+                minlength="3"
+            />
+
+            <label class="auth-label" for="email">Email</label>
+            <input
+                class="auth-input"
+                type="email"
+                name="email"
+                autocomplete="off"
+                required
+                minlength="8"
+            />
+            <!-- <svg class="icon-name" width="18" height="24">
+                <use href="./images/symbol-defs.svg#icon-mail-02"></use>
+            </svg> -->
+            <label class="auth-label" for="password">Password</label>
+            <input
+                class="auth-input"
+                type="password"
+                name="password"
+                autocomplete="off"
+                required
+                minlength="8"
+            />
+            <!-- <svg class="icon-pass" width="18" height="24">
+                <use href="./images/symbol-defs.svg#icon-lock"></use>
+            </svg> -->
+            <button class="btn-submit" type="submit">Sign up</button>
+
+            <div class="auth-btn-group">
+                <button
+                    type="button"
+                    class="auth-link auth-activ-link"
+                    data-action="sign-up"
+                >
+                    sign up
+                </button>
+                <button type="button" class="auth-link" data-action="sign-in">
+                    sign in
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+.scroll-up {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 54px;
+    height: 54px;
+    box-shadow: 0px 0px 0px 5px rgba(79, 46, 232, 0.3);
+    border-radius: 50%;
+    background-color: var(--blue-color);
+
+    color: var(--white-color);
+    z-index: 100;
+    opacity: 1;
+    transition: opacity 600ms linear, background-color 300ms linear;
+}
+
+.up-icon {
+    fill: currentColor;
+}
+
+.scroll-up:hover,
+.scroll-up:focus {
+    background-color: rgba(79, 46, 232, 0.3);
+}
+
+.is-hidden {
+    opacity: 0;
+}

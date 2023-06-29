@@ -1,22 +1,18 @@
-const body = document.querySelector('body');
 const themeToggle = document.querySelector('input[name = switcher_checkbox]');
+
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+    themeToggle.checked = true;
+}
 
 themeToggle.addEventListener('change', handlerThemeChange);
 
-let getMode = localStorage.getItem('mode');
-if (getMode && getMode === 'dark') {
-    body.classList.add('dark');
-    themeToggle.checked = true;
-} else {
-    body.classList.remove('dark');
-}
-
 function handlerThemeChange() {
     if (themeToggle.checked) {
-        body.classList.add('dark');
-        localStorage.setItem('mode', 'dark');
-    } else {
-        body.classList.remove('dark')
-        localStorage.setItem('mode', 'light');
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        return;
     }
+    document.body.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
 }

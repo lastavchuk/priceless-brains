@@ -47,16 +47,16 @@ function renderCategoryBooks(books) {
         sliceAuthor = book.author.slice(0, lastSpaceIndex) + '...';
           }
           return `
-          <li class="book-card" data-id="${book._id}">
+          <li class="category-book-card" data-id="${book._id}">
           <div class="image-overlay"> 
             <img class="book-image" src="${book.book_image}" alt="${book.title}" loading="lazy" width="" />
             <div class="pop-up-window">
                 <p class="pop-up-text">quick view</p>
               </div></div>
             <h3 class="book-name">${sliceTitle}</h3>
-            <p class="book-author">${sliceAuthor}</p>
+            <p class="author-book">${sliceAuthor}</p>
           </li>
-        `
+        `;
         })
       .join('');
     bookList.innerHTML = markup;
@@ -132,22 +132,22 @@ function createGalleryItem(data) {
             const lastSpaceIndex = el.title.lastIndexOf(' ', 21);
             sliceTitle = el.title.slice(0, lastSpaceIndex) + '...';
           }
-          return `
-            <li class="book-card" data-id="${el._id}">
-            <div class="image-overlay"> 
-            <img class="book-image" src="${el.book_image}" alt="${el.title}" loading="lazy" />
-              <div class="pop-up-window">
-                <p class="pop-up-text">quick view</p>
-              </div>
-            </div> 
-              <h3 class="book-name">${sliceTitle}</h3>
-              <p class="author-book">${el.author}</p>
-            </li>
-          `;
-        })
-        .join('');
+            return `
+              <li class="book-card" data-id="${el._id}">
+              <div class="image-overlay"> 
+              <img class="book-image" src="${el.book_image}" alt="${el.title}" loading="lazy" />
+                <div class="pop-up-window">
+                  <p class="pop-up-text">quick view</p>
+                </div>
+              </div> 
+                <h3 class="book-name">${sliceTitle}</h3>
+                <p class="book-author">${el.author}</p>
+              </li>
+            `;
+          })
+          .join('');
 
-      return `
+          return `
         <li class="books-allcat">
           <h2 class="category-item">${element.list_name}</h2>
           <ul class="categories">
@@ -157,10 +157,9 @@ function createGalleryItem(data) {
         </li>
         
       `;
-    })
-    .join('');
+        })
+        .join('');
 
-  bookList.innerHTML = markup;
+      bookList.innerHTML = markup;
 
-}
-
+    }

@@ -9,3 +9,5 @@ import '../js/up-btn';
 import '../js/burger-menu';
 import '../js/components/refs'
 import '../js/header'
+import '../js/footer';
+

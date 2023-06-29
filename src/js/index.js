@@ -6,3 +6,4 @@ import '../js/shopping';
 import '../js/auth';
 import '../js/dark-light-theme';
 import '../js/up-btn';
+import '../js/footer';

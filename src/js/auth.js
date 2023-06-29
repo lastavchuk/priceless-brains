@@ -1,6 +1,6 @@
 const authBtnClose = document.querySelector('[data-close-auth]');
 const authBackdrop = document.querySelector('.auth-backdrop');
-const btnMenu = document.querySelector('.btn-wrapper');
+const btnMenu = document.querySelector('.js-sign-up-btn');
 
 btnMenu.addEventListener('click', onAuthModalOpen);
 

@@ -1,6 +1,7 @@
 .support-wrapper {
     max-width: 335px;
-    min-height: 352px;
+    max-height: 352px;
+    padding-top: 24px;
     padding: 24px 40px 20px;
     border-radius: 16px;
     background: radial-gradient(
@@ -41,11 +42,16 @@
     letter-spacing: -0.56px;
 }
 .support-link img {
-    filter: brightness(0) invert(1);
+    max-height: 32px;
+    filter: grayscale(100%) invert(50%) brightness(200%);
 }
 
+// .slider-wrapper {
+//     overflow: hidden;
+// }
+
 .support-list {
-    height: 188px;
+    max-height: 188px;
     overflow-y: auto;
     scroll-behavior: smooth;
 }
@@ -79,14 +85,14 @@
 
 @media screen and (min-width: $tablet) {
     .support-wrapper {
-        height: 472px;
+        max-height: 472px;
         padding-bottom: 14px;
         margin-top: 40px;
         margin-left: 32px;
     }
 
     .support-list {
-        height: 292px;
+        max-height: 292px;
     }
 
     .support-btn-more {
@@ -99,7 +105,7 @@
 @media screen and (min-width: $desktop) {
     .support-wrapper {
         max-width: 356px;
-        height: 490px;
+        max-height: 490px;
         padding-bottom: 24px;
         margin-top: 86px;
         margin-left: 0;

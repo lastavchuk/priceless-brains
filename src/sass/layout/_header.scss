@@ -184,6 +184,16 @@ input:checked + .slider:before {
   
 }
 
+.menu-burger-icon-open {
+  stroke: var(--logo-text);
+}
+
+.menu-burger-icon-open:hover,
+.menu-burger-icon-open:focus {
+  stroke: var(--blue-color);
+}
+
+
 .current {
   color: $primary-color;
   background-color: $yellow-color;

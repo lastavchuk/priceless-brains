@@ -1,4 +1,4 @@
-import '../js/components/refs'
+import '../js/components/refs';
 import '../js/burger-menu';
 import '../js/dark-light-theme';
 import '../js/list-category';
@@ -8,4 +8,3 @@ import '../js/modal';
 import '../js/auth';
 import '../js/up-btn';
 import '../js/footer';
-

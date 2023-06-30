@@ -6,6 +6,9 @@
     visibility: hidden;
     pointer-events: none;
 }
+.backdrop_footer {
+    z-index: 10;
+}
 .modal_footer {
     z-index: 100;
 
@@ -22,8 +25,6 @@
     border-radius: 5px;
     overflow: auto;
     background-color: var(--footer-bg-color);
-    //background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, var(--blue-color) 18.03%, var(--white-color) 100%);;
-
     padding: 20px;
 
     transform: translate(-50%, -50%) scale(1);
@@ -69,7 +70,7 @@
     overflow: hidden;
 }
 .team_title {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: var(--logo-text);
     font-weight: 500;
     font-size: 30px;
@@ -81,30 +82,27 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .team_item {
+    overflow: hidden;
     perspective: 1000px;
     transform-style: preserve-3d;
+    transition: transform 250ms cubic-bezier(0.56, 0.57, 0.76, 0.76);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 5px;
+               
 }
 
-.card-item {
-    width: 200px;
-    height: 320px;
-    transition: transform 250ms cubic-bezier(0.56, 0.57, 0.76, 0.76);
-
-    margin-bottom: 20px;
-    background-color: var(--footer-bg-color);
-    padding: 5px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-        0px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+.team_item:hover{
+    transform: scale(1.1);
 }
 .teammate-descr{
     display: flex;
     justify-content: center;
     gap: 10px;
+    padding-bottom: 10px;
 }
 .teammate {
     color: var(--logo-text);
@@ -114,8 +112,10 @@
 }
 
 .team_img {
-    margin-bottom: 15px;
+    display: block;
+    margin-bottom: 10px;
     max-height: 250px;
+    object-fit: cover;
 }
 
 .team_text {
@@ -141,8 +141,8 @@
 
 @media screen and (min-width: 1200px) {
     .modal_footer {
-        width: 1000px;
-        height: 800px;
+        width: 950px;
+        height: 750px;
     }
 }
 

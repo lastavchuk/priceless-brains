@@ -1,6 +1,4 @@
-import amazon from '../images/js-project-png/amazon_x1.png';
-import applebooks from '../images/js-project-png/ibooks_x1.png';
-import bookshop from '../images/js-project-png/book-shop_x1.png';
+import buyIcons from '../images/symbol-defs.svg';
 
 const refs = {
     modalBtnClose: document.querySelector('[data-modal-close]'),
@@ -63,12 +61,14 @@ function onEscModalClose(evt) {
 }
 
 function openModal() {
+    document.body.classList.add('stop-scrolling');
     refs.modalBackDrop.classList.remove('modal-is-hidden');
     refs.modalBackDrop.addEventListener('click', onBackDropModalClose);
     window.addEventListener('keydown', onEscModalClose);
 }
 
 function closeModal() {
+    document.body.classList.remove('stop-scrolling');
     refs.modalBackDrop.classList.add('modal-is-hidden');
     window.removeEventListener('keydown', onEscModalClose);
     refs.modalBackDrop.removeEventListener('click', onBackDropModalClose);
@@ -171,7 +171,10 @@ function createModalMarkup(data) {
                 rel="noopener noreferrer"
                 target="_blank"
             >
-                <img src="${amazon}" alt="${name}" />
+            <svg class="modal-buy-svg" width="32px" height="32px">
+            <use href="${buyIcons}#icon-amazon"></use>
+        </svg>
+
             </a>
         </li>`;
             }
@@ -184,7 +187,10 @@ function createModalMarkup(data) {
                 rel="noopener noreferrer"
                 target="_blank"
             >
-                <img src="${applebooks}" alt="${name}" />
+            <svg class="modal-buy-svg" width="32px" height="32px">
+            <use href="${buyIcons}#icon-apple"></use>
+        </svg>
+
             </a>
         </li>`;
             }
@@ -197,7 +203,10 @@ function createModalMarkup(data) {
                 rel="noopener noreferrer"
                 target="_blank"
             >
-                <img src="${bookshop}" alt="${name}" />
+            <svg class="modal-buy-svg" width="32px" height="32px">
+            <use href="${buyIcons}#icon-books"></use>
+        </svg>
+
             </a>
         </li>`;
             }

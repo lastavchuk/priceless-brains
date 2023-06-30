@@ -24,7 +24,7 @@ async function getAllCategory() {
                 )
                 .sort()
                 .join('');
-            categoryList.innerHTML = markupCategories;
+          categoryList.insertAdjacentHTML('beforeend', markupCategories);
         })
         .catch(error => console.log(error));
 }

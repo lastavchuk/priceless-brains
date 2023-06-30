@@ -27,6 +27,9 @@
     left: 50%;
     width: 100%;
     max-width: 335px;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
     background-color: var(--header-bg-color);
     padding: 40px 24px;
     border: 2px solid var(--other-text-color);
@@ -119,7 +122,7 @@
     letter-spacing: -0.14px;
     text-transform: uppercase;
     margin-top: 40px;
-    padding: 14px 28px;
+    padding: 14px 23px;
     border-radius: 40px;
     border: 2px solid var(--sidebar-activ-text);
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
@@ -151,6 +154,16 @@
     font-size: 10px;
     line-height: 12px;
     letter-spacing: -0.4px;
+}
+
+.modal-link {
+    color: var(--congrat-text-color);
+}
+
+.modal-buy-svg {
+    color: var(--congrat-text-color);
+    fill: var(--congrat-text-color);
+    stroke: var(--congrat-text-color);
 }
 
 @media screen and (min-width: 768px) {

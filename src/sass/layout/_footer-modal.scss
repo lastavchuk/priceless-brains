@@ -6,6 +6,9 @@
     visibility: hidden;
     pointer-events: none;
 }
+.backdrop_footer {
+    z-index: 10;
+}
 .modal_footer {
     z-index: 100;
 

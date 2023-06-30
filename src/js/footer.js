@@ -25,21 +25,3 @@ function onBackdropFooterClick(event) {
         handlerCloseModal();
     }
 };
-
-const cards = document.querySelectorAll('.team_item');
-
-cards.forEach(card => {
-    card.addEventListener('mousemove', onRotateCard);
-    card.addEventListener('mouseout', onStopRotateCard);
-});
-
-function onRotateCard() {
-    const cardItem = this.querySelector('.card-item');
-
-    cardItem.style.transform = 'scale(1.1)';
-}
-
-function onStopRotateCard() {
-    const cardItem = this.querySelector('.card-item');
-    cardItem.style.transform = 'scale(1)';
-}

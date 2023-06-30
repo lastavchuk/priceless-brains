@@ -24,7 +24,7 @@ async function getAllCategory() {
                 )
                 .sort()
                 .join('');
-            categoryList.innerHTML = markupCategories;
+          categoryList.insertAdjacentHTML('beforeend', markupCategories);
         })
         .catch(error => console.log(error));
 }
@@ -52,8 +52,8 @@ function renderCategoryBooks(books) {
         const markup = books
             .map(book => {
                 let sliceTitle = book.title;
-                if (book.title.length > 20) {
-                    const lastSpaceIndex = book.title.lastIndexOf(' ', 20);
+                if (book.title.length > 18) {
+                    const lastSpaceIndex = book.title.lastIndexOf(' ', 18);
                     sliceTitle = book.title.slice(0, lastSpaceIndex) + '...';
                 }
                 let sliceAuthor = book.author;

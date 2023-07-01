@@ -18,7 +18,7 @@
     text-align: center;
 
     width: 310px;
-    height: 450px;
+    height: 500px;
 
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     border-radius: 5px;
@@ -68,27 +68,34 @@
     overflow: hidden;
 }
 .team_title {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     color: var(--logo-text);
     font-weight: 500;
-    font-size: 30px;
+    font-size: 24px;
     line-height: 1.17;
     text-transform: uppercase;
 }
 
 .team_list {
     max-width: 100%;
-    max-height: 100%;
     overflow: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
+.team_list::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--bg-color);
+}
+
+.team_list::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-color);
+
+    border-radius: 12px;
+}
 
 .team_item {
-    max-width: 190px;
-    overflow: hidden;
     perspective: 1000px;
     transform-style: preserve-3d;
     transition: transform 250ms cubic-bezier(0.56, 0.57, 0.76, 0.76);
@@ -134,16 +141,22 @@
         fill: var(--blue-color);
     }
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: $desktop) {
+    .team_list {
+        max-height: 420px;
+    }
+}
+
+@media screen and (min-width: $tablet) {
     .modal_footer {
         width: 550px;
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: $desktop) {
     .modal_footer {
         width: 950px;
-        height: 700px;
+        height: 660px;
     }
     .team_list{
         overflow: unset;

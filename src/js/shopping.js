@@ -5,4 +5,5 @@ import '../js/support';
 import '../js/shopping';
 import '../js/auth';
 import '../js/up-btn';
+import '../js/shopping-list'
 import '../js/footer';

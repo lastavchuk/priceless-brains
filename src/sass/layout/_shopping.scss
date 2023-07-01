@@ -4,9 +4,6 @@
     align-items: center;
     justify-content: center;
 }
-.empty-page {
-    display: none;
-}
 
 .emptyPage__p {
     font-size: 14px;
@@ -24,6 +21,7 @@
     margin-top: 40px;
     margin-bottom: 40px;
     margin-left: 20px;
+    color: var(--other-text-color);
     span {
         color: $sidebar-activ-text;
     }
@@ -43,10 +41,11 @@
 
 .book__card {
     border-radius: 16px;
-    border: 2px solid rgba(79, 46, 232, 0.4);
+    border: 2px solid $border-li-shopping-list;
     display: flex;
     padding: 14px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 img.book__card-img {
@@ -102,6 +101,10 @@ img.book__card-img {
     margin-left: auto;
     gap: 8px;
     align-items: center;
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+
 }
 .book__card-platforms-a.amazon {
     align-self: flex-end;
@@ -113,6 +116,9 @@ img.book__card-img {
     background: $sidebar-activ-text;
     margin-left: auto;
     border-radius: 34px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
 }
 
 .flex {

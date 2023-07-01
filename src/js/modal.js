@@ -166,7 +166,7 @@ function createModalMarkup(data) {
                 return `<li class="modal-item">
             <a
                 aria-label="${name}"
-                class="modal-link"
+                class="modal-buy-link"
                 href="${url}"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -182,7 +182,7 @@ function createModalMarkup(data) {
                 return `<li class="modal-item">
             <a
                 aria-label="${name}"
-                class="modal-link"
+                class="modal-buy-link"
                 href="${url}"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -198,7 +198,7 @@ function createModalMarkup(data) {
                 return `<li class="modal-item">
             <a
                 aria-label="${name}"
-                class="modal-link"
+                class="modal-buy-link"
                 href="${url}"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -215,3 +215,7 @@ function createModalMarkup(data) {
         .join('');
     return markup;
 }
+
+export { getFromLS, addToLS, removeFromLS };
+export { KEY_LS };
+export { refs };

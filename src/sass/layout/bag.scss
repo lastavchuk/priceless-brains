@@ -1,0 +1,28 @@
+.js-bag {
+scale: 1.7;
+}
+
+.bag-wrapper{
+  position: relative;
+}
+
+.js-bag-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  bottom: -5px;
+  right: -8px;
+  border-radius: 50%;
+  background-color: var(--sidebar-activ-text);
+}
+
+.js-bag-item{
+  display: flex;
+  justify-content: center;
+color: var(--header-bg-color);
+font-size: 11px;
+
+}

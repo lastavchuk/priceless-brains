@@ -4,7 +4,7 @@
   padding-right: 20px;
   padding-left: 20px;
   border: 1.5px solid var(--logo-text);
-  background-color: var(--header-bg-color);
+
   border-radius: 0px 0px 8px 8px;
   margin-left: auto;
   margin-right: auto;
@@ -76,7 +76,7 @@
   width: 28px;
   height: 28px;
   margin-left: 14px;
-  background-color: var(--header-bg-color);
+
 }
 
 .menu-burger-open {
@@ -179,10 +179,21 @@ input:checked + .slider:before {
 }
 
 .cart {
+  position: relative;
   fill: $primary-color;
   fill: var(--logo-text);
   
 }
+
+.menu-burger-icon-open {
+  stroke: var(--logo-text);
+}
+
+.menu-burger-icon-open:hover,
+.menu-burger-icon-open:focus {
+  stroke: var(--blue-color);
+}
+
 
 .current {
   color: $primary-color;

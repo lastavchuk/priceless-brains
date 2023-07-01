@@ -156,14 +156,23 @@
     letter-spacing: -0.4px;
 }
 
-.modal-link {
+.modal-buy-link {
     color: var(--congrat-text-color);
+    width: 32px;
+    height: 32px;
 }
 
+
+
 .modal-buy-svg {
-    color: var(--congrat-text-color);
     fill: var(--congrat-text-color);
-    stroke: var(--congrat-text-color);
+    transition: fill 250ms ease-in-out, stroke 250ms ease-in-out;
+
+}
+
+.modal-buy-svg:hover {
+    transition: fill 250ms ease-in-out, stroke 250ms ease-in-out;
+    fill: var(--sidebar-activ-text);
 }
 
 @media screen and (min-width: 768px) {

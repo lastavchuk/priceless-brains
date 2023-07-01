@@ -128,12 +128,14 @@
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
 }
 
-.modal-btn:hover {
+.modal-btn:hover,
+.modal-btn:focus {
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
     background-color: var(--sidebar-activ-text);
     color: var(--white-color);
 }
-.modal-close-svg:hover {
+.modal-close-svg:hover,
+.modal-close-svg:focus {
     transition: background-color 250ms ease-in-out, stroke 250ms ease-in-out;
     background-color: var(--sidebar-activ-text);
     stroke: var(--white-color);
@@ -170,7 +172,8 @@
 
 }
 
-.modal-buy-svg:hover {
+.modal-buy-svg:hover,
+.modal-buy-svg:focus {
     transition: fill 250ms ease-in-out, stroke 250ms ease-in-out;
     fill: var(--sidebar-activ-text);
 }

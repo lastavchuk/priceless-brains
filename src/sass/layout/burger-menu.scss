@@ -66,21 +66,21 @@
   }
   
   .mobile-modal-icon-close {
-    stroke: $primary-color;
-    transition: stroke transition-duration 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    stroke: var(--logo-text);
+    transition:  transition-duration 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .mobile-modal-icon-close:hover,
   .mobile-modal-icon-close:focus {
-    stroke: $blue-color;
+    stroke: var(--blue-color);
   }
   
   .mobile-menu-modal .login-modal {
     display: block;
     width: 184px;
     height: 48px;
-    background-color: $primary-color;
-    color: var(--header-bg-color);
+    background-color: var(--blue-color);
+    color: var(--white-color);
     border: 1.5px solid #111111;
     border-radius: 18px;
     font-weight: 500;
@@ -106,8 +106,8 @@
   
   .mobile-menu-modal .shopping-list-header,
   .mobile-menu-modal .cart {
-    fill: var(--header-bg-color);
-    color: var(--header-bg-color);
+    fill: var(--white-color);
+    color: var(--white-color);
   }
   
   body.modal-open {

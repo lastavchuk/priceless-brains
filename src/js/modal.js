@@ -216,6 +216,6 @@ function createModalMarkup(data) {
     return markup;
 }
 
-export { getFromLS, addToLS, removeFromLS };
-export { KEY_LS };
-export { refs };
+// export { getFromLS, addToLS, removeFromLS };
+// export { KEY_LS };
+// export { refs };

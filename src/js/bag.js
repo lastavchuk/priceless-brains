@@ -1,5 +1,9 @@
-import { getFromLS } from './modal';
-import { KEY_LS } from './modal';
+// import { getFromLS } from './modal';
+// import { KEY_LS } from './modal';
+const KEY_LS = 'books';
+function getFromLS(key) {
+    return JSON.parse(localStorage.getItem(key));
+}
 
 const bagMobile = document.querySelectorAll('.cart');
 const bagContainer = document.querySelectorAll('.js-bag-container');

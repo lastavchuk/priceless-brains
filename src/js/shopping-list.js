@@ -1,37 +1,39 @@
 import buyIcons from '../images/symbol-defs.svg';
-const emptyPage = document.querySelector('.emptyPage__container')
+const emptyPage = document.querySelector('.emptyPage__container');
 const cardsListShop = document.querySelector('.cards');
-const listBookShop = document.querySelector('.book__wrapper')
+const listBookShop = document.querySelector('.book__wrapper');
 let bookLocalStorage = JSON.parse(localStorage.getItem('books'));
 
 const URL = 'https://books-backend.p.goit.global/books/';
 
-cardShoppingList(bookLocalStorage)
+cardShoppingList(bookLocalStorage);
+
 async function fetchCards(id) {
-  try {
-    const response = await fetch(`${URL}${id}`);
-    const book = await response.json();
-    return book;
-  } catch (error) {
-    console.log(`Oops! Something went wrong while fetching book with id ${id}. Error: ${error}`);
-    throw error;
-  }
+    try {
+        const response = await fetch(`${URL}${id}`);
+        const book = await response.json();
+        return book;
+    } catch (error) {
+        console.log(
+            `Oops! Something went wrong while fetching book with id ${id}. Error: ${error}`
+        );
+        throw error;
+    }
 }
 
 async function cardShoppingList(bookLocalStorage) {
     if (bookLocalStorage.length) {
-        emptyPage.classList.add('visually-hidden')
+        emptyPage.classList.add('visually-hidden');
         listBookShop.classList.remove('visually-hidden');
     }
-    
-  try {
-    const bookPromises = bookLocalStorage.map(id => fetchCards(id));
-    const books = await Promise.all(bookPromises);
 
-    const markup = books
-        .map(res => {
+    try {
+        const bookPromises = bookLocalStorage.map(id => fetchCards(id));
+        const books = await Promise.all(bookPromises);
 
-        return `<li class="book__card" data-id=${res._id}>
+        const markup = books
+            .map(res => {
+                return `<li class="book__card" data-id=${res._id}>
             
                 <img
                     class="book__card-img"
@@ -76,23 +78,27 @@ async function cardShoppingList(bookLocalStorage) {
                 </div>
             </div>
         </li>`;
-      })
-      .join('');
+            })
+            .join('');
 
-      cardsListShop.insertAdjacentHTML('beforeend', markup);
-      cardsListShop.addEventListener('click', basketDelete)
-  } catch (error) {
-    console.log(`Oops! Something went wrong. You caught the following error: ${error.message}.`);
-  }
+        cardsListShop.insertAdjacentHTML('beforeend', markup);
+        cardsListShop.addEventListener('click', basketDelete);
+    } catch (error) {
+        console.log(
+            `Oops! Something went wrong. You caught the following error: ${error.message}.`
+        );
+    }
 }
 
 function basketDelete(e) {
-  if (e.target.closest('.book__card-delBtn')) {
-    const listItem = e.target.closest('li');
-    listItem.remove();
-    
-    const bookLocalStorage = JSON.parse(localStorage.getItem('books'));
-    const newBooks = bookLocalStorage.filter(id => id !== listItem.dataset.id);
-    localStorage.setItem('books', JSON.stringify(newBooks));
-  }
+    if (e.target.closest('.book__card-delBtn')) {
+        const listItem = e.target.closest('li');
+        listItem.remove();
+
+        const bookLocalStorage = JSON.parse(localStorage.getItem('books'));
+        const newBooks = bookLocalStorage.filter(
+            id => id !== listItem.dataset.id
+        );
+        localStorage.setItem('books', JSON.stringify(newBooks));
+    }
 }

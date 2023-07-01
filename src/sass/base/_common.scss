@@ -8,6 +8,16 @@ body {
     background-color: var(--bg-color);
     color: var(--primary-color);
 }
+body::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--bg-color);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-color);
+
+    border-radius: 12px;
+}
 
 h1,
 h2,

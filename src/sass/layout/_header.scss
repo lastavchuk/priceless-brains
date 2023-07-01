@@ -179,6 +179,7 @@ input:checked + .slider:before {
 }
 
 .cart {
+  position: relative;
   fill: $primary-color;
   fill: var(--logo-text);
   

@@ -24,7 +24,7 @@ async function getAllCategory() {
                 )
                 .sort()
                 .join('');
-          categoryList.insertAdjacentHTML('beforeend', markupCategories);
+            categoryList.insertAdjacentHTML('beforeend', markupCategories);
         })
         .catch(error => console.log(error));
 }
@@ -90,7 +90,7 @@ function onCategoryClick(e) {
     if (activeCategory) {
         activeCategory.classList.remove('category-active');
     }
-    e.target.classList.add('category-active');
+    // e.target.classList.add('category-active');
     clickCategory.classList.add('category-active');
     if (category === 'allBooks') {
         createMarkup();

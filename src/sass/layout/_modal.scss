@@ -128,12 +128,14 @@
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
 }
 
-.modal-btn:hover {
+.modal-btn:hover,
+.modal-btn:focus {
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
     background-color: var(--sidebar-activ-text);
     color: var(--white-color);
 }
-.modal-close-svg:hover {
+.modal-close-svg:hover,
+.modal-close-svg:focus {
     transition: background-color 250ms ease-in-out, stroke 250ms ease-in-out;
     background-color: var(--sidebar-activ-text);
     stroke: var(--white-color);
@@ -156,14 +158,24 @@
     letter-spacing: -0.4px;
 }
 
-.modal-link {
+.modal-buy-link {
     color: var(--congrat-text-color);
+    width: 32px;
+    height: 32px;
 }
 
+
+
 .modal-buy-svg {
-    color: var(--congrat-text-color);
     fill: var(--congrat-text-color);
-    stroke: var(--congrat-text-color);
+    transition: fill 250ms ease-in-out, stroke 250ms ease-in-out;
+
+}
+
+.modal-buy-svg:hover,
+.modal-buy-svg:focus {
+    transition: fill 250ms ease-in-out, stroke 250ms ease-in-out;
+    fill: var(--sidebar-activ-text);
 }
 
 @media screen and (min-width: 768px) {

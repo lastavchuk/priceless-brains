@@ -119,7 +119,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
+.book-card,
+.category-book-card{
+    cursor: pointer;
+}
 .image-overlay {
     position: relative;
     overflow: hidden;

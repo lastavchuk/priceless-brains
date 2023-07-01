@@ -12,11 +12,13 @@ function handlerOpenModal() {
     elements.modalFooter.classList.remove('visibility-hidden');
     document.body.classList.add('stop-scrolling');
     elements.backdropFooter.addEventListener('click', onBackdropFooterClick);
+    document.addEventListener('keydown', onEscapeBtnPress);
 }
 function handlerCloseModal() {
     elements.modalFooter.classList.add('visibility-hidden');
     document.body.classList.remove('stop-scrolling');
     elements.backdropFooter.removeEventListener('click', onBackdropFooterClick);
+    document.removeEventListener('keydown', onEscapeBtnPress);
 }
 
 function onBackdropFooterClick(event) {
@@ -25,3 +27,10 @@ function onBackdropFooterClick(event) {
         handlerCloseModal();
     }
 };
+
+function onEscapeBtnPress(event) {
+    event.preventDefault();
+    if (event.key === 'Escape') {
+        handlerCloseModal();
+    }
+}

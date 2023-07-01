@@ -46,9 +46,10 @@ async function fetchCategory(query) {
 function renderCategoryBooks(books) {
     const isAllBooks = categoryName.textContent === 'allBooks';
 
-    if (isAllBooks) {
-        createGalleryItem(books);
-    } else {
+  if (isAllBooks) {
+    createGalleryItem(books);
+    loadingPage(loader)
+  } else {
         const markup = books
             .map(book => {
                 let sliceTitle = book.title;
@@ -75,8 +76,9 @@ function renderCategoryBooks(books) {
             })
             .join('');
         bookList.innerHTML = markup;
-    }
+  }
 }
+
 
 function onCategoryClick(e) {
     const category = e.target.dataset.name;
@@ -90,6 +92,7 @@ function onCategoryClick(e) {
     if (activeCategory) {
         activeCategory.classList.remove('category-active');
     }
+
     // e.target.classList.add('category-active');
     clickCategory.classList.add('category-active');
     if (category === 'allBooks') {
@@ -99,7 +102,8 @@ function onCategoryClick(e) {
     }
 
     getCategoryBooks(category);
-    categoryName.innerHTML = parseTitle(category);
+  categoryName.innerHTML = parseTitle(category);
+
 }
 
 function parseTitle(title) {
@@ -113,7 +117,7 @@ function parseTitle(title) {
 async function getCategoryBooks(category) {
     try {
         const response = await fetchCategory(category);
-        renderCategoryBooks(response);
+      renderCategoryBooks(response);
     } catch (error) {
         console.log(
             `Oops! Something went wrong. You caught the following error: ${error.message}.`
@@ -140,7 +144,7 @@ async function getBestBooks() {
 
 async function createMarkup() {
     const data = await getBestBooks();
-    createGalleryItem(data);
+  createGalleryItem(data);
     loadPage(loader);
 }
 

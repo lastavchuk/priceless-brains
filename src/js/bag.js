@@ -1,11 +1,13 @@
 import { getFromLS } from './modal';
 import { KEY_LS } from './modal';
 
-const bag = document.querySelector('.cart');
-const bagContainer = document.querySelector('.js-bag-container');
-const bagItem = document.querySelector('.js-bag-item');
+const bagMobile = document.querySelectorAll('.cart');
+const bagContainer = document.querySelectorAll('.js-bag-container');
+const bagItem = document.querySelectorAll('.js-bag-item');
 
 window.addEventListener('click', checkNumberinLS);
+
+checkNumberinLS();
 
 function checkNumberinLS() {
     const books = getFromLS(KEY_LS) || [];
@@ -20,19 +22,25 @@ function checkNumberinLS() {
 }
 
 function hideBagCounter() {
-    bag.classList.remove('js-bag');
-    bagContainer.classList.add('visually-hidden');
-    bagItem.classList.add('visually-hidden');
+    for (let i = 0; i < 2; i += 1) {
+        bagMobile[i].classList.remove('js-bag');
+        bagContainer[i].classList.add('visually-hidden');
+        bagItem[i].classList.add('visually-hidden');
+    }
 }
 
 function addBagCounter() {
-    bag.classList.add('js-bag');
-    bagContainer.classList.remove('visually-hidden');
-    bagItem.classList.remove('visually-hidden');
+    for (let i = 0; i < 2; i += 1) {
+        bagMobile[i].classList.add('js-bag');
+        bagContainer[i].classList.remove('visually-hidden');
+        bagItem[i].classList.remove('visually-hidden');
+    }
 }
 
 function counterBooks(bookNumbers) {
-    return bookNumbers < 10
-        ? (bagItem.textContent = bookNumbers)
-        : (bagItem.textContent = '9+');
+    return bagItem.forEach(el =>
+        bookNumbers < 10
+            ? (el.textContent = bookNumbers)
+            : (el.textContent = '9+')
+    );
 }

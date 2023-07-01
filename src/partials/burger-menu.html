@@ -31,9 +31,16 @@
                         class="header-nav-link shopping-list-header js-burger-shop-btn"
                         href="./shopping-list.html"
                         >SHOPPING LIST
-                        <svg class="cart" width="20" height="20">
-                            <use href="./images/symbol-defs.svg#uil_cart"></use>
-                        </svg>
+                        <div class="bag-wrapper">
+                            <svg class="cart bag-mobile" width="20" height="20">
+                                <use href="./images/symbol-defs.svg#bag"></use>
+                            </svg>
+                            <div class="js-bag-container visually-hidden">
+                                <span
+                                    class="js-bag-item visually-hidden"
+                                ></span>
+                            </div>
+                        </div>
                         <span class="header-shopping-count is-hidden"></span>
                     </a>
                 </li>

@@ -78,7 +78,7 @@ img.book__card-img {
 
 .book__card-info-desc {
     height: 56px;
-    max-width: 193px;
+    width: 193px;
     color: var(--other-text-color);
     font-size: 14px;
     line-height: 18px;
@@ -90,6 +90,11 @@ img.book__card-img {
     -webkit-line-clamp: 3;
     line-clamp: 3;
     -webkit-box-orient: vertical;
+}
+@media screen and (min-width: $tablet) {
+    .book__card-info-desc {
+        width: 100%;
+    }
 }
 
 .book__card-author {

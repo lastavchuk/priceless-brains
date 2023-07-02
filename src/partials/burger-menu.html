@@ -1,12 +1,13 @@
 <div class="mobile-menu-modal" id="mobile-menu-modal">
-    <div class="mobile-menu-modal-content">
+    <div class="mobile-menu-modal-content container">
         <button
             class="btn login-btn login-modal js-burger-sign-up-btn"
-            type="button">
+            type="button"
+        >
             <svg class="burger-user-icon is-hidden" width="37" height="37">
                 <use href="./images/symbol-defs.svg#user-icon-header"></use>
             </svg>
-            <span class="burger-sign-up-btn-text ">Sign up</span>
+            <span class="burger-sign-up-btn-text">Sign up</span>
             <svg
                 class="arrow-right js-burger-arrow-right"
                 width="20"
@@ -30,9 +31,16 @@
                         class="header-nav-link shopping-list-header js-burger-shop-btn"
                         href="./shopping-list.html"
                         >SHOPPING LIST
-                        <svg class="cart" width="20" height="20">
-                            <use href="./images/symbol-defs.svg#uil_cart"></use>
-                        </svg>
+                        <div class="bag-wrapper">
+                            <svg class="cart bag-mobile" width="20" height="20">
+                                <use href="./images/symbol-defs.svg#bag"></use>
+                            </svg>
+                            <div class="js-bag-container visually-hidden">
+                                <span
+                                    class="js-bag-item visually-hidden"
+                                ></span>
+                            </div>
+                        </div>
                         <span class="header-shopping-count is-hidden"></span>
                     </a>
                 </li>

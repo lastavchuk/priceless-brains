@@ -99,7 +99,6 @@ let isUp = false;
 
 if (supportList.scrollHeight > supportList.clientHeight) {
     const btnMore = document.querySelector('.support-btn-more');
-    // supportList.classList.add('list-more');
     btnMore.classList.remove('visually-hidden');
     btnMore.addEventListener('click', handlerClickMore);
 }
@@ -136,12 +135,12 @@ function changeDirec(e) {
     isUp = e.currentTarget.classList.contains('totop');
 }
 
-function setItemsVisible() {
-    if (window.matchMedia('(max-width: 767px)').matches) {
-        return 4;
-    } else if (window.matchMedia('(min-width:  768px)').matches) {
-        return 6;
-    }
-}
+// function setItemsVisible() {
+//     if (window.matchMedia('(max-width: 767px)').matches) {
+//         return 4;
+//     } else if (window.matchMedia('(min-width:  768px)').matches) {
+//         return 6;
+//     }
+// }
 
-setItemsVisible();
+// setItemsVisible();

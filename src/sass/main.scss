@@ -1,3 +1,6 @@
+@import '../../node_modules/modern-normalize/modern-normalize.css';
+// @import 'node_modules/modern-normalize/modern-normalize.css';
+
 @import './utils/variables';
 
 @import './base/common';
@@ -12,7 +15,6 @@
 @import './layout/modal';
 @import './layout/shopping';
 @import './layout/up-btn';
-@import './layout/burger-menu';
 @import './layout/loader';
 
 @import './layout/footer';

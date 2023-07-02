@@ -4,15 +4,12 @@
     align-items: center;
     justify-content: center;
 }
-.empty-page {
-    display: none;
-}
 
 .emptyPage__p {
     font-size: 14px;
     line-height: 18px;
     letter-spacing: -0.28px;
-    color: rgba(0, 0, 0, 0.6);
+    color: var(--shopping-empty);
     margin-bottom: 14px;
 }
 
@@ -23,9 +20,9 @@
     letter-spacing: -1.28px;
     margin-top: 40px;
     margin-bottom: 40px;
-    margin-left: 20px;
+    color: var(--other-text-color);
     span {
-        color: $sidebar-activ-text;
+        color: var(--blue-color);
     }
 }
 .Shop-list__empty-title {
@@ -37,22 +34,24 @@
     margin-bottom: 120px;
     margin-left: 20px;
     span {
-        color: $sidebar-activ-text;
+        color: var(--blue-color);
     }
 }
 
 .book__card {
     border-radius: 16px;
-    border: 2px solid rgba(79, 46, 232, 0.4);
+    border: 2px solid var(--shopping-border-list);
     display: flex;
     padding: 14px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 img.book__card-img {
     border-radius: 8px;
     max-width: none;
     width: 100px;
+    height: 142px;
 }
 
 .book__card-info {
@@ -64,13 +63,14 @@ img.book__card-img {
     font-weight: 700;
     line-height: 18px;
     letter-spacing: -0.64px;
+    color: var(--other-text-color);
     text-transform: uppercase;
     margin-bottom: 4px;
     display: inline-block;
 }
 
 .book__card-info-genre {
-    color: $second-color;
+    color: var(--second-color);
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.36px;
@@ -78,7 +78,7 @@ img.book__card-img {
 }
 
 .book__card-info-desc {
-    color: $primary-color;
+    color: var(--other-text-color);
     font-size: 14px;
     line-height: 18px;
     letter-spacing: -0.56px;
@@ -86,7 +86,7 @@ img.book__card-img {
 }
 
 .book__card-author {
-    color: $second-color;
+    color: var(--second-color);
     font-size: 12px;
     font-style: italic;
     line-height: 14px;
@@ -102,6 +102,9 @@ img.book__card-img {
     margin-left: auto;
     gap: 8px;
     align-items: center;
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
 }
 .book__card-platforms-a.amazon {
     align-self: flex-end;
@@ -110,9 +113,12 @@ img.book__card-img {
 .book__card-delBtn {
     width: 34px;
     height: 34px;
-    background: $sidebar-activ-text;
+    background: var(--blue-color);
     margin-left: auto;
     border-radius: 34px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
 }
 
 .flex {
@@ -131,13 +137,13 @@ img.book__card-img {
     border: 1px solid #111;
 }
 .black {
-    background: $primary-color;
+    background: var(--primary-color);
 }
 .white {
-    background: white;
+    background: var(--white-color);
 }
 .yellow {
-    background: $yellow-color;
+    background: var(--yellow-color);
 }
 
 .pagination {
@@ -165,20 +171,20 @@ img.book__card-img {
     align-items: center;
 }
 .color {
-    color: white;
+    color: var(--white-color);
 }
 
 .from-tablet {
     display: none;
 }
 .two-arrow-left {
-    fill: $second-color;
+    fill: var(--shopping-arrow-left);
 }
 .arrow-left {
-    fill: $second-color;
+    fill: var(--shopping-arrow-left);
 }
 .arrow-right {
-    fill: $primary-color;
+    fill: var(--shopping-arrow-right);
 }
 .svgSetUp {
     width: 28px;
@@ -198,7 +204,7 @@ img.book__card-img {
     align-items: center;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
     .svgSetUp {
         width: 30px;
         height: 30px;
@@ -233,6 +239,7 @@ img.book__card-img {
     }
     img.book__card-img {
         width: 116px;
+        height: 165px;
     }
     .book__card {
         padding: 30px 24px;
@@ -273,7 +280,4 @@ img.book__card-img {
     .pagination__circle.last {
         margin-right: auto;
     }
-}
-
-@media screen and (min-width: 1280px) {
 }

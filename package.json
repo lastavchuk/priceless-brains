@@ -19,8 +19,10 @@
   },
   "dependencies": {
     "firebase": "^9.23.0",
+    "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.6"
+    "notiflix": "^3.2.6",
+    "tui-pagination": "^3.4.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",

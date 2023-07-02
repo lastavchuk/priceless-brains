@@ -14,13 +14,13 @@
     transition-property: opacity, visibility;
     transition-duration: var(--tr-duration);
     transition-timing-function: var(--tr-cubic);
+    z-index: 20;
 }
 
 .backdrop.is-hidden {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    /* pointer-events - чи будуть впливати кліки мишки на елемент чи блок */
 }
 
 .backdrop.is-hidden .modal {
@@ -43,7 +43,7 @@
     transform: translate(-50%, -50%) scale(1);
     transition: transform var(--tr-duration) var(--tr-cubic);
 }
-.auth-icon-close{
+.auth-icon-close {
     stroke: inherit;
 }
 .btn-close {
@@ -72,13 +72,13 @@
     background-color: var(--blue-color);
     stroke: var(--white-color);
 }
-.btn-submit{
+.btn-submit {
     width: 100%;
     padding: 20px 0;
     border-radius: 40px;
 
     background: var(--auth-border-color);
-    color: #F3F3F3;
+    color: var(--auth-btn-text-color);
 
     font-size: 18px;
     font-weight: 700;
@@ -86,14 +86,14 @@
     letter-spacing: -0.18px;
     text-transform: uppercase;
 }
-.auth-btn-group{
-display: flex;
-gap: 20px;
-justify-content: center;
-margin-top: 20px;
+.auth-btn-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
 }
 .auth-link {
-    color: rgba(17, 17, 17, 0.50);
+    color: var(--congrat-text-color);
     font-size: 18px;
     font-weight: 700;
     line-height: 1.33;
@@ -102,7 +102,7 @@ margin-top: 20px;
     text-transform: uppercase;
 }
 .auth-link.auth-activ-link {
-    color: var(--blue-color);;
+    color: var(--blue-color);
 }
 
 .auth {
@@ -118,7 +118,7 @@ margin-top: 20px;
     border: 2px solid var(--auth-border-color);
     margin-bottom: 28px;
 }
-.auth-label{
+.auth-label {
     color: var(--auth-border-color);
     font-size: 18px;
     font-weight: 700;
@@ -127,7 +127,7 @@ margin-top: 20px;
     text-transform: uppercase;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
     .auth-modal {
         width: 579px;
         min-height: 516px;

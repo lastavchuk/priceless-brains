@@ -1,11 +1,13 @@
+import throttle from 'lodash.throttle';
+
 const scrollUp = document.querySelector('.scroll-up');
 
-window.addEventListener('scroll', handlerScrollDoc);
+window.addEventListener('scroll', throttle(handlerScrollDoc, 300));
 
 scrollUp.classList.add('is-hidden');
 
 function handlerScrollDoc() {
-    if (window.scrollY < 600) {
+    if (window.scrollY < 250) {
         scrollUp.classList.add('is-hidden');
     } else {
         scrollUp.classList.remove('is-hidden');

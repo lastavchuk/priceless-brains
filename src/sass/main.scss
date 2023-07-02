@@ -1,0 +1,23 @@
+@import '../../node_modules/modern-normalize/modern-normalize.css';
+// @import 'node_modules/modern-normalize/modern-normalize.css';
+
+@import './utils/variables';
+
+@import './base/common';
+@import './base/container';
+
+@import './layout/header';
+@import './layout/burger-menu';
+@import './layout/container';
+@import './layout/sidebar';
+@import './layout/support';
+@import './layout/auth';
+@import './layout/modal';
+@import './layout/shopping';
+@import './layout/up-btn';
+@import './layout/loader';
+
+@import './layout/footer';
+@import './layout/footer-modal';
+@import './layout/bag.scss';
+

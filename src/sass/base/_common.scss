@@ -1,0 +1,79 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+}
+body::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--bg-color);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-color);
+
+    border-radius: 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus,
+button:focus {
+    outline: 1px solid transparent;
+}
+
+button {
+    padding: 0;
+    border: none;
+    /* background-color: transparent; */
+    /* font: inherit; */
+    cursor: pointer;
+}
+
+address {
+    font-style: normal;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}

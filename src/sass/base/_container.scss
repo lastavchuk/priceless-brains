@@ -1,0 +1,41 @@
+.container {
+    max-width: 375px;
+    padding: 0 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+@media screen and (min-width: $tablet) {
+    .container {
+        max-width: 768px;
+        padding: 0 32px;
+    }
+    .main {
+        width: 100%;
+    }
+    .aside {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: $desktop) {
+    .container {
+        max-width: 1440px;
+        padding: 0 24px;
+    }
+    .wrapper {
+        flex-direction: row-reverse;
+    }
+    .main {
+        width: 996px;
+    }
+    .aside {
+        display: block;
+        width: 356px;
+        margin-right: 40px;
+    }
+}

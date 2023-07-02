@@ -1,0 +1,251 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-color: rgba(17, 17, 17, 0.5);
+    visibility: visible;
+    pointer-events: initial;
+    transition: visibility 250ms ease-in-out, opacity 250ms ease-in-out;
+    z-index: 9;
+}
+
+.backdrop.modal-is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 335px;
+    max-height: 100%;
+    // overflow-y: auto;
+    // overflow-x: hidden;
+    background-color: var(--header-bg-color);
+    padding: 40px 24px;
+    border: 2px solid var(--other-text-color);
+    border-radius: 20px;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms ease-in-out;
+}
+
+.modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    padding: 0;
+    // overflow: hidden;
+}
+
+.thumb {
+    border-radius: 8px;
+    // overflow: hidden;
+    width: 287px;
+    height: 408px;
+}
+
+.modal-book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+.modal-book::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--bg-color);
+}
+
+.modal-book::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-color);
+    border-radius: 12px;
+}
+
+.book-img {
+    width: 287px;
+    height: 408px;
+}
+
+.name {
+    color: var(--other-text-color);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: -0.64px;
+    margin-right: auto;
+    margin-top: 18px;
+}
+
+.author {
+    color: var(--second-color);
+    font-size: 12px;
+    font-style: italic;
+    line-height: 14px;
+    letter-spacing: -0.48px;
+    margin-right: auto;
+    margin-top: 4px;
+}
+
+.descr {
+    font-size: 14px;
+    color: var(--other-text-color);
+    line-height: 18px;
+    letter-spacing: -0.56px;
+    margin-top: 18px;
+}
+
+.modal-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+    gap: 20px;
+    margin-right: auto;
+}
+
+.modal-item {
+    display: flex;
+    align-items: center;
+}
+
+.modal-btn {
+    background-color: transparent;
+    font-size: 14px;
+    color: var(--other-text-color);
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: -0.14px;
+    text-transform: uppercase;
+    margin-top: 40px;
+    padding: 14px 23px;
+    border-radius: 40px;
+    border: 2px solid var(--blue-color);
+    transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+    transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+    background-color: var(--blue-color);
+    color: var(--white-color);
+}
+.modal-close-svg:hover,
+.modal-close-svg:focus {
+    transition: background-color 250ms ease-in-out, stroke 250ms ease-in-out;
+    stroke: var(--blue-color);
+}
+
+.modal-close-svg {
+    transition: background-color 250ms ease-in-out, stroke 250ms ease-in-out;
+    stroke: var(--other-text-color);
+}
+.congratulations {
+    display: flex;
+    width: 242px;
+    flex-direction: column;
+    margin-top: 8px;
+
+    color: var(--congrat-text-color);
+    text-align: center;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: -0.4px;
+}
+
+.modal-buy-link {
+    color: var(--congrat-text-color);
+    width: 32px;
+    height: 32px;
+}
+
+.modal-buy-svg {
+    fill: var(--congrat-text-color);
+    transition: fill 250ms ease-in-out, stroke 250ms ease-in-out;
+}
+
+.modal-buy-svg:hover,
+.modal-buy-svg:focus {
+    transition: fill 250ms ease-in-out, stroke 250ms ease-in-out;
+    fill: var(--blue-color);
+}
+
+@media screen and (min-width: $tablet) {
+    .modal {
+        max-width: 579px;
+        padding: 40px 40px;
+        align-items: stretch;
+    }
+
+    .thumb {
+        width: 192px;
+        height: 281px;
+    }
+    .book-img {
+        width: 192px;
+        height: 281px;
+    }
+
+    .modal-book {
+        flex-direction: row;
+        justify-content: start;
+        align-items: start;
+    }
+
+    .modal-book-info {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 283px;
+        margin-left: 24px;
+    }
+
+    .name {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+        letter-spacing: -0.96px;
+    }
+
+    .author {
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: -0.56px;
+        margin-top: 8px;
+    }
+
+    .descr {
+        width: 279px;
+        margin-top: 20px;
+    }
+
+    .modal-list {
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .congratulations {
+        width: 324px;
+        margin-left: auto;
+        margin-right: auto;
+        color: var(--congrat-text-color);
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: -0.48px;
+    }
+}

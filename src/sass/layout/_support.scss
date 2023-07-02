@@ -1,0 +1,112 @@
+.support-wrapper {
+    max-width: 335px;
+    max-height: 352px;
+    padding-top: 24px;
+    padding: 24px 40px 20px;
+    border-radius: 16px;
+    background: radial-gradient(
+        189.32% 190.93% at 59.76% -23.42%,
+        var(--blue-color) 18.03%,
+        var(--white-color) 100%
+    );
+    box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
+    color: var(--white-color);
+}
+
+.support-title-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 12px;
+}
+
+.support-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.14;
+    letter-spacing: -1.12px;
+}
+
+.support-title-icon {
+    fill: var(--white-color);
+}
+
+.support-link {
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+    gap: 16px;
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: -0.56px;
+}
+.support-link img {
+    max-height: 32px;
+    filter: grayscale(100%) invert(50%) brightness(200%);
+}
+
+.support-list {
+    max-height: 188px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.support-list::-webkit-scrollbar {
+    display: none;
+}
+
+.support-item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.support-btn-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px auto 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--white-color);
+}
+
+.support-svg-down {
+    fill: var(--blue-color);
+}
+
+.totop {
+    transform: rotate(180deg);
+}
+
+@media screen and (min-width: $tablet) {
+    .support-wrapper {
+        max-height: 472px;
+        padding-bottom: 14px;
+        margin-top: 40px;
+        margin-left: 32px;
+    }
+
+    .support-list {
+        max-height: 292px;
+    }
+
+    .support-btn-more {
+        margin-top: 32px;
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media screen and (min-width: $desktop) {
+    .support-wrapper {
+        max-width: 356px;
+        max-height: 490px;
+        padding-bottom: 24px;
+        margin-left: 0;
+    }
+
+    .support-btn-more {
+        margin-top: 40px;
+    }
+}

@@ -1,0 +1,171 @@
+.backdrop_footer.visibility-hidden .modal_footer {
+    transform: translate(-50%, -50%) scale(0.75);
+}
+.backdrop_footer.visibility-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.backdrop_footer {
+    z-index: 10;
+}
+.modal_footer {
+    z-index: 100;
+
+    position: relative;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+
+    width: 310px;
+    height: 500px;
+
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--footer-bg-color);
+    padding: 20px;
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal_footer__clous-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    stroke: var(--logo-text);
+}
+.modal_footer__clous-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    .modal_footer__clous-btn:hover &,
+    .modal_footer__clous-btn:focus & {
+        stroke: var(--blue-color);
+    }
+}
+.backdrop_footer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+.team_title {
+    padding-bottom: 10px;
+    color: var(--logo-text);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.17;
+    text-transform: uppercase;
+}
+
+.team_list {
+    max-width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.team_list::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--bg-color);
+}
+
+.team_list::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-color);
+
+    border-radius: 12px;
+}
+
+.team_item {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 250ms cubic-bezier(0.56, 0.57, 0.76, 0.76);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 5px;
+}
+
+.team_item:hover {
+    transform: scale(1.1);
+}
+.teammate-descr {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+.teammate {
+    color: var(--logo-text);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.33;
+}
+
+.team_img {
+    display: block;
+    margin-bottom: 10px;
+    max-width: 190px;
+    max-height: 220px;
+    object-fit: cover;
+}
+
+.team_text {
+    color: var(--logo-text);
+    font-size: 12px;
+    line-height: 1.33;
+}
+.social_icon {
+    fill: var(--logo-text);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    .social_link:hover &,
+    .social_link:focus & {
+        fill: var(--blue-color);
+    }
+}
+@media screen and (max-width: $desktop) {
+    .team_list {
+        max-height: 420px;
+    }
+}
+
+@media screen and (min-width: $tablet) {
+    .modal_footer {
+        width: 550px;
+    }
+}
+
+@media screen and (min-width: $desktop) {
+    .modal_footer {
+        width: 950px;
+        height: 660px;
+    }
+    .team_list {
+        overflow: unset;
+    }
+}
+
+.second-line__text {
+    cursor: pointer;
+}
+
+.info__name.info__name-dark {
+    color: #ffffff;
+}

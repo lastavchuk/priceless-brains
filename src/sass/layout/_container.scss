@@ -1,0 +1,205 @@
+.top-books {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    margin: 40px 0;
+    color: var(--other-text-color);
+}
+
+.title-blue {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    margin: 40px 0;
+    color: var(--blue-color);
+}
+
+.category-item {
+    color: var(--second-color);
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 18px;
+    letter-spacing: 0.42px;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+.book-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;}
+.image-overlay {
+    width: 335px;
+    height: 485px;
+}
+.book-name {
+    color: var(--other-text-color);
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 18px;
+    margin-top: 14px;
+}
+
+.book-author {
+    color: var(--second-color);
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 14px;
+    margin-top: 4px;
+}
+.author-book {
+    color: var(--second-color);
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 14px;
+    margin-bottom: 40px;
+    margin-top: 4px;
+}
+.see-more-btn {
+    color: var(--other-text-color);
+    background-color: var(--bg-color);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 18px;
+    padding: 14px 28px;
+    border-radius: 40px;
+    overflow: hidden;
+    border: 2px solid var(--blue-color);
+    margin-bottom: 40px;
+    margin-top: 8px;
+    display: block;
+    margin-left: auto;
+    transition: color 250ms, background-color 250ms;
+}
+.see-more-btn:hover,
+.see-more-btn:focus {
+    background-color: var(--blue-color);
+    color: var(--header-bg-color);
+    transition: color 250ms, background-color 250ms;
+}
+.category-name {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    margin-bottom: 40px;
+    color: var(--other-text-color);
+}
+@media screen and (max-width: $tablet) {
+    .category-name {
+        margin-top: 40px;
+    }
+}
+.book-card:not(:first-child) {
+    display: none;
+}
+
+// ========= Вікно що віїзжає quick view
+.pop-up-window {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    border-radius: 0 0 8px 8px;
+    width: 100%;
+    height: 70px;
+    opacity: 0;
+    background: var(--yellow-color);
+    user-select: none;
+    transition-duration: 250ms;
+}
+
+.pop-up-text {
+    letter-spacing: -0.56px;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--other-text-color);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: calc(18 / 14);
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.book-card,
+.category-book-card {
+    cursor: pointer;
+}
+.image-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-overlay:hover .pop-up-window,
+.image-overlay:focus .pop-up-window {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+@media screen and (min-width: $tablet) {
+    .top-books {
+        margin: 100px 0 40px 0;
+    }
+    .category-name {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 52px;
+    }
+    .title-blue {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 52px;
+    }
+    .categories {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+    }
+    .see-more-btn {
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+    .image-overlay {
+        width: 218px;
+        height: 316px;
+    }
+    .book-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px 25px;
+    }
+    .author-book {
+        margin-bottom: 0;
+    }
+    .book-card:nth-last-child(-n + 2) {
+        display: block;
+    }
+}
+
+@media screen and (min-width: $desktop) {
+    .book-list {
+        gap: 40px 24px;
+    }
+    .top-books {
+        margin: 40px 0;
+    }
+    .category-name {
+        margin: 40px 0;
+    }
+    .image-overlay {
+        width: 180px;
+        height: 256px;
+    }
+    .see-more-btn {
+        margin-top: 32px;
+    }
+    .book-card:nth-last-child(-n + 4) {
+        display: block;
+    }
+}

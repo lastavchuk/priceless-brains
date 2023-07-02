@@ -13,9 +13,9 @@
 }
 
 .backdrop.modal-is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
 }
 
 .modal {
@@ -28,8 +28,8 @@
     width: 100%;
     max-width: 335px;
     max-height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
+    // overflow-y: auto;
+    // overflow-x: hidden;
     background-color: var(--header-bg-color);
     padding: 40px 24px;
     border: 2px solid var(--other-text-color);
@@ -51,12 +51,12 @@
     border-radius: 50%;
     background-color: transparent;
     padding: 0;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 .thumb {
     border-radius: 8px;
-    overflow: hidden;
+    // overflow: hidden;
     width: 287px;
     height: 408px;
 }
@@ -65,6 +65,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
+}
+.modal-book::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--bg-color);
+}
+
+.modal-book::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-color);
+    border-radius: 12px;
 }
 
 .book-img {
@@ -124,21 +134,20 @@
     margin-top: 40px;
     padding: 14px 23px;
     border-radius: 40px;
-    border: 2px solid var(--sidebar-activ-text);
+    border: 2px solid var(--blue-color);
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
 }
 
 .modal-btn:hover,
 .modal-btn:focus {
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
-    background-color: var(--sidebar-activ-text);
+    background-color: var(--blue-color);
     color: var(--white-color);
 }
 .modal-close-svg:hover,
 .modal-close-svg:focus {
     transition: background-color 250ms ease-in-out, stroke 250ms ease-in-out;
-    background-color: var(--sidebar-activ-text);
-    stroke: var(--white-color);
+    stroke: var(--blue-color);
 }
 
 .modal-close-svg {
@@ -164,21 +173,18 @@
     height: 32px;
 }
 
-
-
 .modal-buy-svg {
     fill: var(--congrat-text-color);
     transition: fill 250ms ease-in-out, stroke 250ms ease-in-out;
-
 }
 
 .modal-buy-svg:hover,
 .modal-buy-svg:focus {
     transition: fill 250ms ease-in-out, stroke 250ms ease-in-out;
-    fill: var(--sidebar-activ-text);
+    fill: var(--blue-color);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
     .modal {
         max-width: 579px;
         padding: 40px 40px;

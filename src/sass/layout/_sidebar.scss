@@ -1,18 +1,16 @@
 .category {
-    margin: 40px 0;
     width: 100%;
+    max-width: 307px;
     height: 228px;
     color: var(--congrat-text-color);
     margin-top: 40px;
-    max-width: 307px;
-    width: 100%;
+    margin-bottom: 40px;
     overflow-y: scroll;
     font-size: 16px;
     letter-spacing: -0.32px;
     scroll-behavior: smooth;
     text-align: left;
-    font-family: DM Sans, ;
-
+    font-family: DM Sans;
 }
 
 .category::-webkit-scrollbar {
@@ -22,26 +20,23 @@
 
 .category::-webkit-scrollbar-thumb {
     background-color: var(--scroll-color);
-   
     border-radius: 12px;
 }
-
-
 
 @media screen and (min-width: $tablet) {
     .category {
         max-width: 337px;
         height: 472px;
+        margin-bottom: 100px;
     }
-
 }
 
 @media screen and (min-width: $desktop) {
     .category {
         max-width: 356px;
         height: 472px;
+        margin-bottom: 86px;
     }
-
 }
 
 .category .item {
@@ -49,9 +44,8 @@
     text-align: left;
     font-size: 18px;
     line-height: 1.33;
-letter-spacing: -0.36px;
+    letter-spacing: -0.36px;
 }
-
 
 .category .item:hover,
 .category .item:focus {
@@ -64,8 +58,10 @@ letter-spacing: -0.36px;
     text-transform: uppercase;
     transform: scaleY(1.1);
     transition: font-weight 250ms linear;
-    color: var(--blue-color);
+    color: var(--sidebar-activ-text);
     text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .category-active {
@@ -75,11 +71,9 @@ letter-spacing: -0.36px;
     text-overflow: ellipsis;
     font-weight: 700;
     overflow: hidden;
-    color: var(--blue-color);
+    color: var(--sidebar-activ-text);
 }
 
-.category .item:first-child~.item {
+.category .item:first-child ~ .item {
     padding-top: 24px;
 }
-
-

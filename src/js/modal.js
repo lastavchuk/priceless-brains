@@ -1,4 +1,6 @@
+import { fetchBook } from './components/api-request';
 import buyIcons from '../images/symbol-defs.svg';
+import Notiflix from 'notiflix';
 
 const refs = {
     modalBtnClose: document.querySelector('[data-modal-close]'),
@@ -76,18 +78,12 @@ function closeModal() {
 
 async function getBookModal(idBook) {
     try {
-        const response = await fetch(
-            `https://books-backend.p.goit.global/books/${idBook}`
-        );
-        if (!response.ok) {
-            throw new Error('Request failed');
-        }
-        const data = await response.json();
+        const data = await fetchBook(idBook);
         refs.modal.innerHTML = createModalMarkup(data);
         openModal();
         return data;
     } catch (error) {
-        console.log(
+        Notiflix.Notify.failure(
             `Oops! Something went wrong. You caught the following error: ${error.message}.`
         );
     }
@@ -150,14 +146,13 @@ function removeModalLogic(evt) {
 
 function createModalMarkup(data) {
     const { book_image, buy_links, title, description, author } = data;
-    const defaultDescr = 'Sorry! This book not have any description...';
     let markup = `<div class="thumb">
     <img class="book-img" src="${book_image}" alt="${title}" loading="lazy"/>
 </div>
 <div class="modal-book-info">
     <h3 class="name">${title}</h3>
     <h4 class="author">${author}</h4>
-    <p class="descr">${description || defaultDescr}</p>
+    <p class="descr">${description || 'Sorry! This book has no description'}</p>
     <ul class="modal-list">`;
 
     markup += buy_links
@@ -216,6 +211,6 @@ function createModalMarkup(data) {
     return markup;
 }
 
-export { getFromLS, addToLS, removeFromLS };
-export { KEY_LS };
-export { refs };
+// export { getFromLS, addToLS, removeFromLS };
+// export { KEY_LS };
+// export { refs };

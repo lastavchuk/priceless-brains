@@ -4,26 +4,16 @@
     margin-right: auto;
     margin-left: auto;
 }
-
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 768px;
-        padding: 0 32px;
-    }
-}
-
-@media screen and (min-width: 1440px) {
-    .container {
-        max-width: 1440px;
-        padding: 0 24px;
-    }
-}
-
 .wrapper {
     display: flex;
     flex-direction: column-reverse;
 }
-@media screen and (min-width: 768px) {
+
+@media screen and (min-width: $tablet) {
+    .container {
+        max-width: 768px;
+        padding: 0 32px;
+    }
     .main {
         width: 100%;
     }
@@ -32,10 +22,14 @@
     }
 }
 
-@media screen and (min-width: 1440px) {
-.wrapper {
-    flex-direction: row-reverse;
-}
+@media screen and (min-width: $desktop) {
+    .container {
+        max-width: 1440px;
+        padding: 0 24px;
+    }
+    .wrapper {
+        flex-direction: row-reverse;
+    }
     .main {
         width: 996px;
     }

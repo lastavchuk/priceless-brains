@@ -5,12 +5,30 @@
     <p class="emptyPage__p">
         This page is empty, add some books and proceed to order.
     </p>
-    <img
-        class="emptyPage__img"
-        src="./images/book-mobile.jpg"
-        alt="books"
-        width="265"
-    />
+    <picture>
+        <source
+            media="(min-width: 1440px)"
+            srcset="
+                ./images/books-shopping-list/books-desktop.png    1x,
+                ./images/books-shopping-list/books-desktop@2x.png 2x
+            "
+        />
+        <source
+            media="(min-width: 768px)"
+            srcset="
+                ./images/books-shopping-list/books-tablet.png    1x,
+                ./images/books-shopping-list/books-tablet@2x.png 2x
+            "
+            width="322"
+        />
+        <img
+            class="emptyPage__img"
+            src="./images/books-shopping-list/books-mobile.png"
+            srcset="./images/books-shopping-list/books-mobile@2x.png 2x"
+            alt="books"
+            width="265"
+        />
+    </picture>
 </div>
 
 <div class="book__wrapper visually-hidden">

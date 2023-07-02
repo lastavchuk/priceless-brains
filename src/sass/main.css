@@ -1428,23 +1428,10 @@ body.modal-open {
   line-height: 38px;
   letter-spacing: -1.28px;
   margin-top: 40px;
-  margin-bottom: 120px;
+  margin-bottom: 40px;
   color: var(--other-text-color);
 }
 .Shop-list__title span {
-  color: var(--blue-color);
-}
-
-.Shop-list__empty-title {
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 38px;
-  letter-spacing: -1.28px;
-  margin-top: 40px;
-  margin-bottom: 120px;
-  margin-left: 20px;
-}
-.Shop-list__empty-title span {
   color: var(--blue-color);
 }
 
@@ -1455,17 +1442,16 @@ body.modal-open {
   padding: 14px;
   margin-bottom: 20px;
   position: relative;
+  height: 170px;
+  max-width: 335px;
 }
 
 img.book__card-img {
   border-radius: 8px;
-  max-width: none;
-  width: 100px;
-  height: 142px;
 }
 
 .book__card-info {
-  margin-left: 14px;
+  margin-left: 24px;
 }
 
 .book__card-info-name {
@@ -1477,6 +1463,10 @@ img.book__card-img {
   text-transform: uppercase;
   margin-bottom: 4px;
   display: inline-block;
+  max-width: 144px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .book__card-info-genre {
@@ -1485,14 +1475,25 @@ img.book__card-img {
   line-height: 14px;
   letter-spacing: 0.36px;
   margin-bottom: 8px;
+  max-width: 165px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .book__card-info-desc {
+  height: 56px;
+  max-width: 193px;
   color: var(--other-text-color);
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.56px;
-  margin-bottom: 29px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .book__card-author {
@@ -1501,6 +1502,11 @@ img.book__card-img {
   font-style: italic;
   line-height: 14px;
   letter-spacing: -0.48px;
+  margin-top: 16px;
+  max-width: 126px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .book__card-author-platforms-wrapper {
@@ -1509,9 +1515,9 @@ img.book__card-img {
 
 .book__card-platforms-wrapper {
   display: flex;
+  align-items: center;
   margin-left: auto;
   gap: 8px;
-  align-items: center;
   position: absolute;
   bottom: 14px;
   right: 14px;
@@ -1522,8 +1528,8 @@ img.book__card-img {
 }
 
 .book__card-delBtn {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   background: var(--blue-color);
   margin-left: auto;
   border-radius: 34px;
@@ -1631,6 +1637,19 @@ img.book__card-img {
 }
 
 @media screen and (min-width: 768px) {
+  .book__card {
+    padding: 24px;
+    margin-bottom: 20px;
+    position: relative;
+    height: 213px;
+    max-width: 704px;
+  }
+  .book__card-delBtn {
+    width: 34px;
+    height: 34px;
+    top: 24px;
+    right: 24px;
+  }
   .svgSetUp {
     width: 30px;
     height: 30px;
@@ -1643,9 +1662,6 @@ img.book__card-img {
     width: 14;
     height: 14;
   }
-  .Shop-list__empty-title {
-    margin-bottom: 140px;
-  }
   .pagination__circle.from-tablet {
     display: flex;
   }
@@ -1654,7 +1670,12 @@ img.book__card-img {
     line-height: 52px;
     letter-spacing: -1.92px;
   }
+  .emptyPage__container {
+    max-width: 349;
+  }
   .emptyPage__p {
+    margin-bottom: 20px;
+    max-width: 100%;
     font-size: 18px;
     line-height: 24px;
     letter-spacing: -0.36px;
@@ -1667,44 +1688,12 @@ img.book__card-img {
     width: 116px;
     height: 165px;
   }
-  .book__card {
-    padding: 30px 24px;
-  }
-  .book__card-info-desc {
-    margin-bottom: 48px;
-  }
-  .book__card-platforms-img.amazon {
-    width: 48px;
-    height: 15px;
-  }
   .book__card-platforms-img {
     width: 28px;
     height: 28px;
   }
-  .first {
-    margin-left: auto;
-  }
-  .last {
-    margin-right: auto;
-  }
   .book__card:last-child {
     margin-bottom: 40px;
-  }
-  .pagination__circle {
-    width: 44px;
-    height: 44px;
-  }
-  .pagination__circle {
-    margin-left: 10px;
-  }
-  .pagination__circle.margin {
-    margin-left: 24px;
-  }
-  .pagination__circle.first {
-    margin-left: auto;
-  }
-  .pagination__circle.last {
-    margin-right: auto;
   }
 }
 .scroll-up {

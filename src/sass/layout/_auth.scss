@@ -92,17 +92,32 @@
     justify-content: center;
     margin-top: 20px;
 }
-.auth-link {
-    color: var(--congrat-text-color);
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.33;
-    letter-spacing: -0.18px;
-    text-decoration-line: underline;
-    text-transform: uppercase;
+.authorization-btn-in,
+.authorization-btn-up {
+  display: block;
+  height: 24px;
+  font-size: 14px;
+  line-height: 1.28px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--congrat-text-color);
+  transition: 250ms var(--timing-function) cubic-bezier(0.4, 0, 0.2, 1);
 }
-.auth-link.auth-activ-link {
-    color: var(--blue-color);
+
+.authorization-btn-in:hover,
+.authorization-btn-up:hover,
+.authorization-btn-in:focus,
+.authorization-btn-up:focus {
+  color: var(--blue-color);
+}
+
+@media screen and (min-width: 768px) {
+  .authorization-btn-in,
+  .authorization-btn-up {
+    font-size: 18px;
+    height: 24px;
+    line-height: 1.33px;
+  }
 }
 
 .auth {

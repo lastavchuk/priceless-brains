@@ -7,55 +7,55 @@
     align-items: center;
     justify-content: center;
     background: radial-gradient(
-      183.6% 183.01% at 59.76% -23.42%,
-      #4f2ee8 18.03%,
-      #ffffff 100%
+        183.6% 183.01% at 59.76% -23.42%,
+        #4f2ee8 18.03%,
+        #ffffff 100%
     );
     transition: transform 0.3s ease-in-out;
-  }
-  
-  .mobile-menu-modal.open {
+}
+
+.mobile-menu-modal.open {
     transform: translateX(100%);
-  }
-  
-  .js-open-menu-burger {
+}
+
+.js-open-menu-burger {
     display: block;
-  }
-  
-  .js-open-menu-burger.hidden,
-  .close-mobile-modal-btn.hidden {
+}
+
+.js-open-menu-burger.hidden,
+.close-mobile-modal-btn.hidden {
     display: none;
-  }
-  
-  @media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: $tablet) {
     .mobile-menu-modal,
     .js-open-menu-burger {
-      display: none;
+        display: none;
     }
-  }
-  
-  .mobile-menu-modal-content {
+}
+
+.mobile-menu-modal-content {
     position: relative;
     display: flex;
     flex-direction: column;
     height: 100vh;
-    box-sizing: border-box;
-    overflow-y: auto;
+    padding: 20px;
+    padding-bottom: 80px;
     background-size: 100% auto;
     background-position: bottom;
     background-repeat: no-repeat;
     background-image: url(/src/images/modal-window/mobile-menu.png);
-  }
-  
-  @media (min-device-pixel-ratio: 2),
+}
+
+@media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .mobile-menu-modal-content {
-      background-image: url(/src/images/modal-window/mobile-menu@2x.png);
+        background-image: url(/src/images/modal-window/mobile-menu@2x.png);
     }
-  }
-  
-  .close-mobile-modal-btn {
+}
+
+.close-mobile-modal-btn {
     width: 28px;
     height: 28px;
     margin-left: 14px;
@@ -63,20 +63,20 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: var(--header-bg-color);
-  }
-  
-  .mobile-modal-icon-close {
+    background-color: transparent;
+}
+
+.mobile-modal-icon-close {
     stroke: var(--logo-text);
     transition: transition-duration 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .mobile-modal-icon-close:hover,
-  .mobile-modal-icon-close:focus {
+}
+
+.mobile-modal-icon-close:hover,
+.mobile-modal-icon-close:focus {
     stroke: var(--blue-color);
-  }
-  
-  .mobile-menu-modal .login-modal {
+}
+
+.mobile-menu-modal .login-modal {
     display: block;
     width: 184px;
     height: 48px;
@@ -90,47 +90,39 @@
     padding: 14px;
     align-items: center;
     gap: 9px;
-  }
-  
-  .mobile-menu-modal .header-nav-mobile {
+}
+
+.mobile-menu-modal .header-nav-mobile {
     display: flex;
     margin-bottom: auto;
-  }
-  
-  .mobile-menu-modal .header-nav-list {
+}
+
+.mobile-menu-modal .header-nav-list {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     margin-left: auto;
     margin-right: auto;
-  }
-  
-  .mobile-menu-modal .shopping-list-header,
-  .mobile-menu-modal .cart {
-    fill: var(--white-color);
-    color: var(--white-color);
-  }
-  
-  body.modal-open {
+}
+
+.mobile-menu-modal .shopping-list-header,
+.mobile-menu-modal .cart {
+    fill: currentColor;
+}
+
+body.modal-open {
     overflow: hidden;
-  }
-  
-  .mobile-menu-modal-content {
-    overflow: auto;
-    padding: 20px;
-    padding-bottom: 80px;
-  }
-  
-  .burger-log-out-btn {
+}
+
+.burger-log-out-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 118px;
     height: 48px;
-    color: var( --bg-color);
-    background-color:var(--header-bg-color);
-    border: 1.5px solid var( --bg-color);
+    color: var(--bg-color);
+    background-color: var(--header-bg-color);
+    border: 1.5px solid var(--bg-color);
     border-radius: 18px;
     padding: 14px 24px;
-  }
-  
+}

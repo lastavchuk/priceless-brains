@@ -1,4 +1,10 @@
 import { loadingPage, loadPage } from './components/loader';
+import {
+    fetchAllCategory,
+    fetchCategory,
+    fetchBestBooks,
+} from './components/api-request';
+import Notiflix from 'notiflix';
 
 const loader = document.querySelector('.js-loader');
 
@@ -6,10 +12,7 @@ loadingPage(loader);
 getAllCategory();
 
 async function getAllCategory() {
-    const urlCategory =
-        'https://books-backend.p.goit.global/books/category-list';
-    await fetch(urlCategory)
-        .then(response => response.json())
+    await fetchAllCategory()
         .then(data => {
             const markupCategories = data
                 .filter(
@@ -26,7 +29,7 @@ async function getAllCategory() {
                 .join('');
             categoryList.insertAdjacentHTML('beforeend', markupCategories);
         })
-        .catch(error => console.log(error));
+        .catch(error => Notiflix.Notify.failure(error));
 }
 
 const categoryList = document.querySelector('.category-list');
@@ -37,52 +40,36 @@ categoryList.addEventListener('click', onCategoryClick);
 createMarkup();
 bookList.addEventListener('click', onCategoryClick);
 
-const URL = 'https://books-backend.p.goit.global/books/category';
-
-async function fetchCategory(query) {
-    return await fetch(`${URL}?category=${query}`).then(res => res.json());
-}
-
 function renderCategoryBooks(books) {
     const isAllBooks = categoryName.textContent === 'allBooks';
 
-  if (isAllBooks) {
-    createGalleryItem(books);
-    loadingPage(loader)
-  } else {
+    if (isAllBooks) {
+        createGalleryItem(books);
+        loadingPage(loader);
+    } else {
         const markup = books
             .map(book => {
-                let sliceTitle = book.title;
-                if (book.title.length > 18) {
-                    const lastSpaceIndex = book.title.lastIndexOf(' ', 18);
-                    sliceTitle = book.title.slice(0, lastSpaceIndex) + '...';
-                }
-                let sliceAuthor = book.author;
-                if (book.author.length > 21) {
-                    const lastSpaceIndex = book.author.lastIndexOf(' ', 21);
-                    sliceAuthor = book.author.slice(0, lastSpaceIndex) + '...';
-                }
                 return `
           <li class="category-book-card" data-id="${book._id}">
           <div class="image-overlay"> 
-            <img class="book-image" src="${book.book_image}" alt="${book.title}" loading="lazy" width="" />
+            <img class="book-image" src="${book.book_image}" alt="${
+                    book.title
+                }" loading="lazy" width="" />
             <div class="pop-up-window">
                 <p class="pop-up-text">quick view</p>
               </div></div>
-            <h3 class="book-name">${sliceTitle}</h3>
-            <p class="author-book">${sliceAuthor}</p>
+            <h3 class="book-name">${trimText(book.title, 17)}</h3>
+            <p class="author-book">${trimText(book.author, 21)}</p>
           </li>
         `;
             })
             .join('');
         bookList.innerHTML = markup;
-  }
+    }
 }
-
 
 function onCategoryClick(e) {
     const category = e.target.dataset.name;
-    console.log(category);
     if (!category) return;
     const activeCategory = categoryList.querySelector('.category-active');
     const clickCategory = categoryList.querySelector(
@@ -102,8 +89,7 @@ function onCategoryClick(e) {
     }
 
     getCategoryBooks(category);
-  categoryName.innerHTML = parseTitle(category);
-
+    categoryName.innerHTML = parseTitle(category);
 }
 
 function parseTitle(title) {
@@ -116,10 +102,9 @@ function parseTitle(title) {
 
 async function getCategoryBooks(category) {
     try {
-        const response = await fetchCategory(category);
-      renderCategoryBooks(response);
+        renderCategoryBooks(await fetchCategory(category));
     } catch (error) {
-        console.log(
+        Notiflix.Notify.failure(
             `Oops! Something went wrong. You caught the following error: ${error.message}.`
         );
     }
@@ -127,16 +112,9 @@ async function getCategoryBooks(category) {
 
 async function getBestBooks() {
     try {
-        const response = await fetch(
-            'https://books-backend.p.goit.global/books/top-books'
-        );
-        if (!response.ok) {
-            throw new Error('Request failed');
-        }
-        const data = await response.json();
-        return data;
+        return await fetchBestBooks();
     } catch (error) {
-        console.log(
+        Notiflix.Notify.failure(
             `Oops! Something went wrong. You caught the following error: ${error.message}.`
         );
     }
@@ -144,7 +122,7 @@ async function getBestBooks() {
 
 async function createMarkup() {
     const data = await getBestBooks();
-  createGalleryItem(data);
+    createGalleryItem(data);
     loadPage(loader);
 }
 
@@ -153,20 +131,17 @@ function createGalleryItem(data) {
         .map(element => {
             const booksMarkup = element.books
                 .map(el => {
-                    let sliceTitle = el.title;
-                    if (el.title.length > 21) {
-                        const lastSpaceIndex = el.title.lastIndexOf(' ', 21);
-                        sliceTitle = el.title.slice(0, lastSpaceIndex) + '...';
-                    }
                     return `
               <li class="book-card" data-id="${el._id}">
               <div class="image-overlay"> 
-              <img class="book-image" src="${el.book_image}" alt="${el.title}" loading="lazy" />
+              <img class="book-image" src="${el.book_image}" alt="${
+                        el.title
+                    }" loading="lazy" />
                 <div class="pop-up-window">
                   <p class="pop-up-text">quick view</p>
                 </div>
               </div> 
-                <h3 class="book-name">${sliceTitle}</h3>
+                <h3 class="book-name">${trimText(el.title, 21)}</h3>
                 <p class="book-author">${el.author}</p>
               </li>
             `;
@@ -187,4 +162,11 @@ function createGalleryItem(data) {
         .join('');
 
     bookList.innerHTML = markup;
+}
+
+function trimText(text, count) {
+    if (text.length > count) {
+        return text.slice(0, text.lastIndexOf(' ', count)) + '...';
+    }
+    return text;
 }

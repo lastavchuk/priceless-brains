@@ -2,8 +2,8 @@
     padding-top: 30px;
     padding-bottom: 30px;
 }
-.heart-icon{
-    fill: red
+.heart-icon {
+    fill: red;
 }
 .footer__container {
     font-weight: 400;
@@ -31,17 +31,15 @@
     text-decoration: underline;
     cursor: pointer;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
     .footer__container {
         display: flex;
         gap: 5px;
         justify-content: center;
     }
-
     .first-line {
         margin-bottom: 0;
     }
-
     .second-line {
         gap: 5px;
     }

@@ -77,3 +77,10 @@
 .category .item:first-child ~ .item {
     padding-top: 24px;
 }
+
+  @media screen and (min-width: $tablet) {
+    .category .item:first-child~.item {
+            padding-top: 32px;
+        }
+  }
+

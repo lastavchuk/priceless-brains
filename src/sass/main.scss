@@ -1,8 +1,9 @@
-@import '../../node_modules/modern-normalize/modern-normalize.css';
+@import '~node_modules/modern-normalize/modern-normalize.css';
 // @import 'node_modules/modern-normalize/modern-normalize.css';
 
 @import './utils/variables';
 
+@import './base/fonts';
 @import './base/common';
 @import './base/container';
 
@@ -19,5 +20,5 @@
 
 @import './layout/footer';
 @import './layout/footer-modal';
-@import './layout/bag.scss';
+@import './layout/bag';
 

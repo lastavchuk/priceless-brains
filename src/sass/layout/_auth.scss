@@ -98,6 +98,7 @@
   height: 24px;
   font-size: 14px;
   line-height: 1.28px;
+  background-color: var(--auth-btn-text-color);
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--congrat-text-color);
@@ -110,6 +111,11 @@
 .authorization-btn-up:focus {
   color: var(--blue-color);
 }
+
+.auth-activ-link {
+    color: var(--blue-color);
+    text-decoration: underline;
+  }
 
 @media screen and (min-width: 768px) {
   .authorization-btn-in,

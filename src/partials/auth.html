@@ -1,4 +1,4 @@
-<div class="auth-backdrop is-hidden" data-backdrop>
+<div class="auth-backdrop is-hidden js-auth-backdrop" data-backdrop>
     <div class="auth-modal">
         <button class="btn-close" type="button" data-close-auth>
             <svg class="auth-icon-close" width="20" height="20">
@@ -6,7 +6,7 @@
             </svg>
         </button>
 
-        <form id="auth" class="auth">
+        <form id="js-auth-sign-in" class="auth">
             <label class="auth-label" for="name">Name</label>
             <input
                 class="auth-input"
@@ -45,18 +45,26 @@
                 <use href="./images/symbol-defs.svg#icon-lock"></use>
             </svg> -->
             <button class="btn-submit" type="submit">Sign up</button>
-            <button class="authorization-sign-in-btn is-hidden" type="submit">
+            <button
+                class="authorization-sign-in-btn is-hidden"
+                type="submit"
+            ></button>
 
             <div class="auth-btn-group">
                 <button
                     type="button"
-                    class="authorization-btn-up auth-activ-link"
+                    class="auth-link auth-activ-link"
                     data-action="sign-up"
                     id="singUp"
                 >
                     sign up
                 </button>
-                <button type="button" class="authorization-btn-in" data-action="sign-in" id="singIn">
+                <button
+                    type="button"
+                    class="auth-link"
+                    data-action="sign-in"
+                    id="singIn"
+                >
                     sign in
                 </button>
             </div>

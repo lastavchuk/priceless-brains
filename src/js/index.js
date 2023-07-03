@@ -1,4 +1,4 @@
-// import '../js/components/refs';
+import '../js/auth-firebase';
 import '../js/burger-menu';
 import '../js/dark-light-theme';
 import '../js/list-category';

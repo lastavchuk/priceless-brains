@@ -49,12 +49,13 @@ async function cardShoppingList(bookLocalStorage) {
         const markup = books
             .map(res => {
                 return `<li class="book__card" data-id=${res._id}>
-            
+            <div class = "book__img-wrapper">
                 <img
                     class="book__card-img"
                     src="${res.book_image}"
                     alt="${res.title}"
                 />
+                </div>
             <div class="book__card-info">
                 <div class="flex">
                     <div class="book__book__card-info-nameGenre">

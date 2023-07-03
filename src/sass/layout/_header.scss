@@ -55,6 +55,9 @@
 .header-nav-link:hover {
     color: var(--yellow-color);
 }
+.header-nav-link:hover .js-bag-container {
+    background-color: var(--yellow-color);
+}
 
 .shopping-list-header {
     display: flex;
@@ -197,7 +200,6 @@ input:checked + .slider:before {
     border-radius: 36px;
     font-weight: 700;
     border: none;
-    transition: background-color 150ms ease-in-out;
 }
 
 .current:hover,
@@ -228,7 +230,7 @@ input:checked + .slider:before {
     height: 48px;
     color: var(--header-bg-color);
     background-color: var(--header-bg-color);
-    border: 1.5px solid var(--header-bg-color);
+    border: 1.5px solid var(--nav-mobile-menu);
     border-radius: 18px;
     padding: 14px 24px;
 }
@@ -238,7 +240,7 @@ input:checked + .slider:before {
     font-size: 14px;
     line-height: calc(18 / 14);
     letter-spacing: -0.04em;
-    color: var(--header-bg-color);
+    color: var(--nav-mobile-menu);
 }
 
 .log-out-arrow-right {

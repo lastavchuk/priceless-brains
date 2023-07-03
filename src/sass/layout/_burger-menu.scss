@@ -120,9 +120,9 @@ body.modal-open {
     align-items: center;
     max-width: 118px;
     height: 48px;
-    color: var(--bg-color);
-    background-color: var(--header-bg-color);
-    border: 1.5px solid var(--bg-color);
+    // color: var(--bg-color);
+    background-color: var(--white-color);
+    border: 1.5px solid var(--nav-mobile-menu);
     border-radius: 18px;
     padding: 14px 24px;
 }

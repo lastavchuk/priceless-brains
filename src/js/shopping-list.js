@@ -4,6 +4,10 @@ import Notiflix from 'notiflix';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
+if (!localStorage.getItem('user')) {
+    location.href = './';
+}
+
 const navHome = document.querySelector('.js-header-home-btn');
 const navShop = document.querySelector('.js-header-shop-btn');
 const navHomeBurger = document.querySelector('.js-burger-home-btn');
@@ -13,11 +17,6 @@ navHome.classList.remove('current');
 navHomeBurger.classList.remove('current');
 navShop.classList.add('current');
 navShopBurger.classList.add('current');
-
-const tagAside = document.querySelector('.aside');
-if (innerWidth < 1440) {
-    tagAside.style.display = 'none';
-}
 
 const emptyPage = document.querySelector('.emptyPage__container');
 const cardsListShop = document.querySelector('.cards');

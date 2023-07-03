@@ -11,6 +11,7 @@ const firebaseConfig = {
     storageBucket: 'priceless-brains.appspot.com',
     messagingSenderId: '842519757633',
     appId: '1:842519757633:web:d56f79a5d2f91e3c52d7c0',
+    databaseURL: 'https://priceless-brains-default-rtdb.firebaseio.com',
 };
 
 // Initialize Firebase

@@ -16,12 +16,13 @@
     bottom: -5px;
     right: -8px;
     border-radius: 50%;
-    background-color: var(--sidebar-activ-text);
+    background-color: var(--blue-color);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .js-bag-item {
     display: flex;
     justify-content: center;
-    color: var(--header-bg-color);
+    color: var(--white-color);
     font-size: 11px;
 }

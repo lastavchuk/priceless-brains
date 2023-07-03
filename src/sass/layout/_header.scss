@@ -229,7 +229,7 @@ input:checked + .slider:before {
     min-width: 118px;
     height: 48px;
     color: var(--header-bg-color);
-    background-color: var(--header-bg-color);
+    background-color: var(--logout-fon);
     border: 1.5px solid var(--nav-mobile-menu);
     border-radius: 18px;
     padding: 14px 24px;
@@ -240,7 +240,7 @@ input:checked + .slider:before {
     font-size: 14px;
     line-height: calc(18 / 14);
     letter-spacing: -0.04em;
-    color: var(--nav-mobile-menu);
+    color: var(--logout-text);
 }
 
 .log-out-arrow-right {
@@ -341,7 +341,7 @@ input:checked + .slider:before {
         margin-left: 24px;
     }
 }
-@media only screen and (max-width: $tablet) {
+@media only screen and (max-width: 767px) {
     .log-out-btn {
         display: none;
     }
@@ -351,5 +351,6 @@ input:checked + .slider:before {
     .log-out-btn {
         min-width: 184px;
         padding: 14px;
+        top: 0;
     }
 }

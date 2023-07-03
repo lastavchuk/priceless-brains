@@ -4,6 +4,10 @@ import Notiflix from 'notiflix';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
+if (!localStorage.getItem('user')) {
+    location.href = './';
+}
+
 const navHome = document.querySelector('.js-header-home-btn');
 const navShop = document.querySelector('.js-header-shop-btn');
 const navHomeBurger = document.querySelector('.js-burger-home-btn');

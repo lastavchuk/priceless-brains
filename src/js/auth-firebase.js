@@ -7,6 +7,7 @@ import {
     signOut,
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
+import { closeAuthModal } from './auth';
 import Notiflix from 'notiflix';
 
 // Initialize Firebase Authentication and get a reference to the service
@@ -15,8 +16,9 @@ const auth = getAuth(app);
 // Initialize Realtime Database and get a reference to the service
 const db = getDatabase(app);
 
-const sbmtSignIn = document.getElementById('js-auth-sign-in');
-const authBackdrop = document.querySelector('.js-auth-backdrop');
+// const sbmtSignIn = document.getElementById('js-auth-sign-in');
+const sbmtSignUp = document.getElementById('js-auth-sign-up');
+// const authBackdrop = document.querySelector('.js-auth-backdrop');
 const shoppingNav = document.querySelector('.js-shopping-nav');
 const shoppingNavBurger = document.querySelector('.js-shopping-nav-burger');
 const modalBtnAddToShopList = document.querySelector('.js-modal-add-shop-list');
@@ -26,33 +28,31 @@ const btnLogOut = document.querySelector('.js-log-out-btn');
 const btnSignUpBurger = document.querySelector('.js-burger-sign-up-btn');
 const btnLogOutBurger = document.querySelector('.burger-log-out-btn');
 
-sbmtSignIn.elements.name.addEventListener('blur', isValidName);
-sbmtSignIn.elements.email.addEventListener('blur', onCheckValidEmail);
-sbmtSignIn.elements.password.addEventListener(
+sbmtSignUp.elements.name.addEventListener('blur', isValidName);
+sbmtSignUp.elements.email.addEventListener('blur', onCheckValidEmail);
+sbmtSignUp.elements.password.addEventListener(
     'blur',
     onCheckValidEmailPassword
 );
 
-sbmtSignIn.userName.value = 'User';
-sbmtSignIn.userEmail.value = 'email@test.ua';
-sbmtSignIn.userPassword.value = 'aRtyUio_90';
-
 const newUser = {};
+newUser.name = localStorage.getItem('user');
+if (!!newUser.name) {
+    logInAfther();
+}
 
 // Клік по кнопці реєстрації користувача
-sbmtSignIn.addEventListener('submit', onClickSubmitSignIn);
+sbmtSignUp.addEventListener('submit', onClickSubmitSignUp);
 // Клік по кнопці Авторизуватись
-// Клік по кнопці Вийти
+// sbmtSignIn.addEventListener('submit', onClickSubmitSignIn);
 
-function onClickSubmitSignIn(e) {
+// Реєстрація
+function onClickSubmitSignUp(e) {
     e.preventDefault();
 
     newUser.name = e.currentTarget.elements.name.value;
     newUser.email = e.currentTarget.elements.email.value;
     newUser.password = e.currentTarget.elements.password.value;
-    // const {
-    //     elements: { name, email, pass },
-    // } = e.currentTarget;
     if (
         isValidName(newUser.name) &&
         isValidEmail(newUser.email) &&
@@ -62,30 +62,34 @@ function onClickSubmitSignIn(e) {
     }
 }
 
+// Вхід
+function onClickSubmitSignIn() {
+    e.preventDefault();
+
+    // newUser.name = e.currentTarget.elements.name.value;
+    newUser.email = e.currentTarget.elements.email.value;
+    newUser.password = e.currentTarget.elements.password.value;
+
+    if (isValidEmail(newUser.email) && isValidPassword(newUser.password)) {
+        logIn(newUser);
+    }
+}
+
 function registerNewUser(user) {
     createUserWithEmailAndPassword(auth, user.email, user.password)
         .then(userCredential => {
             user.id = userCredential.user.uid;
-            saveNewUserToDatabase(user);
 
             Notiflix.Notify.success(
                 `Hello ${user.name}, your registration was successful`
             );
 
-            authBackdrop.classList.add('is-hidden');
-            shoppingNav.classList.remove('is-hidden');
-            shoppingNavBurger.classList.remove('is-hidden');
-            modalBtnAddToShopList.classList.remove('is-hidden');
-
-            btnSignUp.classList.add('is-hidden');
-            btnLogOut.classList.remove('is-hidden');
-            btnSignUpBurger.classList.add('is-hidden');
-            btnLogOutBurger.classList.remove('is-hidden');
-            btnLogOut.addEventListener('click', logOut);
-            btnLogOutBurger.addEventListener('click', logOut);
+            localStorage.setItem('user', user.name);
+            logInAfther();
+            closeAuthModal();
         })
         .catch(error => {
-            if (error.code === 'auth/email-already-exists') {
+            if (error.code === 'auth/email-already-in-use') {
                 Notiflix.Notify.failure(
                     'A user with this email address is already registered'
                 );
@@ -101,56 +105,24 @@ function registerNewUser(user) {
         });
 }
 
-//записуємо у сховище Database облікові дані користувача
-function saveNewUserToDatabase(user) {
-    set(ref(db, 'users/' + user.id), {
-        username: user.name,
-        email: user.email,
-        // profile_picture: imageUrl,
-    }).catch(error => {
-        Notiflix.Notify.failure(`Error code: ${error.code}`);
-    });
-}
-
-//перевіряємо, чи єактивний User на сторінці
-function checkUserAuth() {
-    onAuthStateChanged(auth, user => {
-        if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/auth.user
-            // const uid = user.uid;
-
-            //витягуємо із сховища ID поточного користувача та записуємо його ім'я в userBarBtnText
-            /*
-const userId = auth.currentUser.uid;
-return onValue(ref(db, '/users/' + userId), (snapshot) => {
-  const username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-            */
-            const userNameRef = ref(db, 'users/' + user.uid);
-            onValue(userNameRef, name => {
-                const currentUserName = name.exportVal();
-
-                // refs.userBarBtnText.innerHTML = currentUserName.username;
-                // refs.userMobileBarBtnText.innerHTML = currentUserName.username;
-            });
-        }
-    });
-}
-
-function logIn() {
+function logIn(user) {
     signInWithEmailAndPassword(auth, user.email, user.password)
         .then(userCredential => {
-            Notiflix.Notify.success(`Hello ${user}, glad to see you again`);
-            // const user = userCredential.user;
+            Notiflix.Notify.success(
+                `Hello ${userCredential.user}, glad to see you again`
+            );
+            newUser.name = userCredential.user;
         })
         .catch(error => {
             if (error.code === 'auth/invalid-password') {
                 Notiflix.Notify.failure(
                     'Your password is invalid, please try again'
                 );
+                return;
             }
             if (error.code === 'auth/user-not-found') {
                 Notiflix.Notify.failure('User not found, please try again');
+                return;
             }
             Notiflix.Notify.failure(`Error code: ${error.code}`);
         });
@@ -159,11 +131,62 @@ function logIn() {
 function logOut() {
     signOut(auth)
         .then(() => {
-            localStorage.removeItem('user');
+            logOutAfther();
         })
         .catch(error => {
             Notiflix.Notify.failure(`Error code: ${error.code}`);
         });
+}
+
+function userInterface() {
+    shoppingNav.classList.toggle('is-hidden');
+    shoppingNavBurger.classList.toggle('is-hidden');
+    modalBtnAddToShopList.classList.toggle('is-hidden');
+
+    btnSignUp.classList.toggle('is-hidden');
+    btnLogOut.classList.toggle('is-hidden');
+    btnSignUpBurger.classList.toggle('is-hidden');
+    btnLogOutBurger.classList.toggle('is-hidden');
+}
+
+function logInAfther() {
+    shoppingNav.classList.remove('is-hidden');
+    shoppingNavBurger.classList.remove('is-hidden');
+
+    // Кнопка на модалцы додати книгу в шоппінг лист
+    if (!!modalBtnAddToShopList) {
+        modalBtnAddToShopList.classList.remove('is-hidden');
+    }
+
+    btnSignUp.classList.add('is-hidden');
+    btnLogOut.classList.remove('is-hidden');
+    btnSignUpBurger.classList.add('is-hidden');
+    btnLogOutBurger.classList.remove('is-hidden');
+
+    btnLogOut.addEventListener('click', logOut);
+    btnLogOutBurger.addEventListener('click', logOut);
+}
+function logOutAfther() {
+    shoppingNav.classList.add('is-hidden');
+    shoppingNavBurger.classList.add('is-hidden');
+
+    // Кнопка на модалцы додати книгу в шоппінг лист
+    if (!!modalBtnAddToShopList) {
+        modalBtnAddToShopList.classList.add('is-hidden');
+    }
+
+    btnSignUp.classList.remove('is-hidden');
+    btnLogOut.classList.add('is-hidden');
+    btnSignUpBurger.classList.remove('is-hidden');
+    btnLogOutBurger.classList.add('is-hidden');
+
+    btnLogOut.removeEventListener('click', logOut);
+    btnLogOutBurger.removeEventListener('click', logOut);
+
+    localStorage.removeItem('user');
+    if (location.href === `${location.origin}/shopping-list.html`) {
+        location.href = './';
+    }
 }
 
 function onCheckValidEmail(e) {

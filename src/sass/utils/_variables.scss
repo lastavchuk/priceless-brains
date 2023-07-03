@@ -17,7 +17,8 @@
     --shopping-arrow-right: #000000; // однаковий колір для обох
     --shopping-current-page: #000000;
     --shopping-current-page-text: #ffffff;
-
+    --logout-text: #111111;
+    --logout-fon: #ffffff;
     --footer-bg-color: var(--bg-color);
 
     //=== однаковий для обох тем ===
@@ -30,6 +31,8 @@
 }
 
 :root body.dark {
+    --logout-fon:#4f2ee8;
+    --logout-text: #ffffff;
     --bg-color: #202024;
     --primary-color: #000000;
     --logo-text: #f3f3f3;

@@ -14,11 +14,6 @@ navHomeBurger.classList.remove('current');
 navShop.classList.add('current');
 navShopBurger.classList.add('current');
 
-const tagAside = document.querySelector('.aside');
-if (innerWidth < 1440) {
-    tagAside.style.display = 'none';
-}
-
 const emptyPage = document.querySelector('.emptyPage__container');
 const cardsListShop = document.querySelector('.cards');
 const listBookShop = document.querySelector('.book__wrapper');

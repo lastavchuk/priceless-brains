@@ -6,7 +6,7 @@
             </svg>
         </button>
 
-        <!-- <form id="js-auth-sign-in" class="auth">
+        <form id="js-auth-sign-in" class="auth visually-hidden">
             <label class="auth-label" for="email">Email</label>
             <input
                 class="auth-input"
@@ -15,7 +15,8 @@
                 autocomplete="off"
                 required
                 minlength="8"
-                id="userEmail"
+                id="userEmailIn"
+                value="test@test.ua"
             />
             <label class="auth-label" for="password">Password</label>
             <input
@@ -25,33 +26,15 @@
                 autocomplete="off"
                 required
                 minlength="8"
-                id="userPassword"
+                id="userPasswordIn"
+                value="aRtyUio_90"
             />
-            <button class="btn-submit" type="submit">Sign in</button> -->
-        <!-- <button
+            <button class="btn-submit" type="submit">Sign in</button>
+            <!-- <button
                 class="authorization-sign-in-btn is-hidden"
                 type="submit"
             ></button> -->
-
-        <!-- <div class="auth-btn-group">
-                <button
-                    type="button"
-                    class="auth-link auth-activ-link"
-                    data-action="sign-up"
-                    id="singUp"
-                >
-                    SIGN UP
-                </button>
-                <button
-                    type="button"
-                    class="auth-link"
-                    data-action="sign-in"
-                    id="singIn"
-                >
-                    SIGN IN
-                </button>
-            </div>
-        </form> -->
+        </form>
 
         <form id="js-auth-sign-up" class="auth">
             <label class="auth-label" for="name">Name</label>
@@ -90,25 +73,24 @@
                 class="authorization-sign-in-btn is-hidden"
                 type="submit"
             ></button> -->
-
-            <div class="auth-btn-group">
-                <button
-                    type="button"
-                    class="auth-link auth-activ-link"
-                    data-action="sign-up"
-                    id="singUp"
-                >
-                    SIGN UP
-                </button>
-                <button
-                    type="button"
-                    class="auth-link"
-                    data-action="sign-in"
-                    id="singIn"
-                >
-                    SIGN IN
-                </button>
-            </div>
         </form>
+        <div class="auth-btn-group">
+            <button
+                type="button"
+                class="auth-link auth-activ-link"
+                data-action="sign-up"
+                id="singUp"
+            >
+                SIGN UP
+            </button>
+            <button
+                type="button"
+                class="auth-link"
+                data-action="sign-in"
+                id="singIn"
+            >
+                SIGN IN
+            </button>
+        </div>
     </div>
 </div>

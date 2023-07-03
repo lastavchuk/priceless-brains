@@ -16,9 +16,8 @@ const auth = getAuth(app);
 // Initialize Realtime Database and get a reference to the service
 const db = getDatabase(app);
 
-// const sbmtSignIn = document.getElementById('js-auth-sign-in');
+const sbmtSignIn = document.getElementById('js-auth-sign-in');
 const sbmtSignUp = document.getElementById('js-auth-sign-up');
-// const authBackdrop = document.querySelector('.js-auth-backdrop');
 const shoppingNav = document.querySelector('.js-shopping-nav');
 const shoppingNavBurger = document.querySelector('.js-shopping-nav-burger');
 const modalBtnAddToShopList = document.querySelector('.js-modal-add-shop-list');
@@ -28,12 +27,22 @@ const btnLogOut = document.querySelector('.js-log-out-btn');
 const btnSignUpBurger = document.querySelector('.js-burger-sign-up-btn');
 const btnLogOutBurger = document.querySelector('.burger-log-out-btn');
 
+// Перемикання форм
+const btnFormsReplace = document.querySelector('.auth-btn-group');
+btnFormsReplace.firstElementChild.addEventListener('click', showSignUpForm);
+btnFormsReplace.lastElementChild.addEventListener('click', showSignInForm);
+
+// Слухачі на валідність введеного в поля
 sbmtSignUp.elements.name.addEventListener('blur', isValidName);
 sbmtSignUp.elements.email.addEventListener('blur', onCheckValidEmail);
 sbmtSignUp.elements.password.addEventListener(
     'blur',
     onCheckValidEmailPassword
 );
+
+// sbmtSignUp.userName.value = 'User';
+// sbmtSignUp.userEmail.value = 'email@test.ua';
+// sbmtSignUp.userPassword.value = 'aRtyUio_90';
 
 const newUser = {};
 newUser.name = localStorage.getItem('user');
@@ -44,7 +53,9 @@ if (!!newUser.name) {
 // Клік по кнопці реєстрації користувача
 sbmtSignUp.addEventListener('submit', onClickSubmitSignUp);
 // Клік по кнопці Авторизуватись
-// sbmtSignIn.addEventListener('submit', onClickSubmitSignIn);
+sbmtSignIn.addEventListener('submit', onClickSubmitSignIn);
+
+checkUserAuth();
 
 // Реєстрація
 function onClickSubmitSignUp(e) {
@@ -63,7 +74,7 @@ function onClickSubmitSignUp(e) {
 }
 
 // Вхід
-function onClickSubmitSignIn() {
+function onClickSubmitSignIn(e) {
     e.preventDefault();
 
     // newUser.name = e.currentTarget.elements.name.value;
@@ -75,16 +86,18 @@ function onClickSubmitSignIn() {
     }
 }
 
-function registerNewUser(user) {
-    createUserWithEmailAndPassword(auth, user.email, user.password)
+function registerNewUser(newUser) {
+    createUserWithEmailAndPassword(auth, newUser.email, newUser.password)
         .then(userCredential => {
-            user.id = userCredential.user.uid;
+            newUser.id = userCredential.user.uid;
+
+            saveNewUserToDatabase(newUser);
 
             Notiflix.Notify.success(
-                `Hello ${user.name}, your registration was successful`
+                `Hello ${newUser.name}, your registration was successful`
             );
 
-            localStorage.setItem('user', user.name);
+            localStorage.setItem('user', newUser.name);
             logInAfther();
             closeAuthModal();
         })
@@ -105,13 +118,41 @@ function registerNewUser(user) {
         });
 }
 
-function logIn(user) {
-    signInWithEmailAndPassword(auth, user.email, user.password)
+//записуємо у сховище Database облікові дані користувача
+function saveNewUserToDatabase(newUser) {
+    set(ref(db, 'users/' + newUser.id), {
+        username: newUser.name,
+        email: newUser.email,
+        // profile_picture: imageUrl,
+    }).catch(error => {
+        Notiflix.Notify.failure(`Error code: ${error.code}`);
+    });
+}
+
+//перевіряємо, чи є активний user на сторінці
+function checkUserAuth() {
+    onAuthStateChanged(auth, user => {
+        if (user) {
+            const userNameRef = ref(db, 'users/' + user.uid);
+            onValue(userNameRef, name => {
+                newUser.name = name.exportVal().username;
+            });
+        }
+    });
+}
+
+function logIn(newUser) {
+    signInWithEmailAndPassword(auth, newUser.email, newUser.password)
         .then(userCredential => {
-            Notiflix.Notify.success(
-                `Hello ${userCredential.user}, glad to see you again`
-            );
-            newUser.name = userCredential.user;
+            newUser.id = userCredential.user.uid;
+
+            saveNewUserToDatabase(newUser);
+
+            localStorage.setItem('user', newUser.name);
+
+            logInAfther();
+            checkUserAuth();
+            closeAuthModal();
         })
         .catch(error => {
             if (error.code === 'auth/invalid-password') {
@@ -136,17 +177,6 @@ function logOut() {
         .catch(error => {
             Notiflix.Notify.failure(`Error code: ${error.code}`);
         });
-}
-
-function userInterface() {
-    shoppingNav.classList.toggle('is-hidden');
-    shoppingNavBurger.classList.toggle('is-hidden');
-    modalBtnAddToShopList.classList.toggle('is-hidden');
-
-    btnSignUp.classList.toggle('is-hidden');
-    btnLogOut.classList.toggle('is-hidden');
-    btnSignUpBurger.classList.toggle('is-hidden');
-    btnLogOutBurger.classList.toggle('is-hidden');
 }
 
 function logInAfther() {
@@ -229,4 +259,15 @@ function isValidPassword(password) {
         }
     );
     return false;
+}
+
+// Показати форму реєстрації
+function showSignUpForm() {
+    sbmtSignUp.classList.remove('visually-hidden');
+    sbmtSignIn.classList.add('visually-hidden');
+}
+// Показати форму входу
+function showSignInForm() {
+    sbmtSignUp.classList.add('visually-hidden');
+    sbmtSignIn.classList.remove('visually-hidden');
 }

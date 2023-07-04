@@ -214,7 +214,16 @@ function logOutAfther() {
     btnLogOutBurger.removeEventListener('click', logOut);
 
     localStorage.removeItem('user');
-    if (location.href === `${location.origin}/shopping-list.html`) {
+
+    // Редірект на головну при виході
+    // if (currentUrl.endsWith('/')) {
+    //     currentUrl = currentUrl.slice(0, -1);
+    // }
+
+    if (
+        location.href.slice(location.href.lastIndexOf('/') + 1) ===
+        'shopping-list.html'
+    ) {
         location.href = './';
     }
 }
